@@ -358,3 +358,14 @@ Hint:
 ```
 
 [P6_MiniProject.java](./src/P6_MiniProject.java)
+
+# Part H: Challenge Questions
+
+```
+These are optional but recommended.
+	1. Why should mobile number usually be stored as String ?
+	2. Why is "99.50" not a double ?
+	3. Why is "true" not a boolean ?
+	4. What happens when we assign a new value to the same variable?
+	5. Write five meaningful variable names using camelCase.
+```
