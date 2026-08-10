@@ -1,63 +1,236 @@
-# Part A: Very Short Answer Questions
+# Part A: Short Answer Questions
 
-1. **What is data?**
+1.  **What is an operator?**
 
-   > Data is information; it can be anything—image, text, video, numbers.
+    > An operator is a symbol that performs an operation.\
+    > Example: + adds two numbers. other operators are `+`, `-`, `*`, `/`, `%`
 
+2.  **What is an operand?**
 
+    > An operand is the value or variable on which the operator acts.\
+    > Example: In `5 + 3`, both `5` and `3` are operands.
 
-# Part B: Identify The Data Type
+3.  **What is the difference between `=` and `==` ?**
 
-| Value        | Correct Data Type |
-| ------------ | ----------------- |
-| 25           | int               |
-| 99.50        | double            |
-| 'A'          | char              |
-| "A"          | String            |
-| true         | boolean           |
-| "true"       | String            |
-| 50000        | int               |
-| 88.75        | double            |
-| '9'          | char              |
-| "9876543210" | String            |
+    > `=` → Assignment operator (stores a value in a variable).\
+    > Example: `x = 10` assigns `10 to x`.\
+    > `==` → Comparison operator (checks equality).\
+    > Example: `x == 10` returns true if `x is 10`.
 
-# Part C: Valid Or Invalid Variable Names
+4.  **What does `%` operator return?**
 
-`First Character: Must start with a Unicode letter (A-Z, a-z), a dollar sign ($), or an underscore (_). It cannot start with a digit.`\
+    > The modulus operator `%` returns the remainder of division.\
+    > Example: `10 % 3 = 1`.
 
-`Subsequent Characters: Can include letters, digits (0-9), underscores (_), and dollar signs ($).`\
+5.  **What is the difference between `&&` and `||` ?**
 
-`No Special Characters: You cannot use symbols like @, #, !, %, or hyphens (-).`\
+    > `&&` → Logical AND (true only if both conditions are true).\
+    > `||` → Logical OR (true if any one condition is true).
 
-`No Whitespace: Spaces are strictly forbidden within a variable name.`\
+6.  **What does `!` operator do?**
 
-`Case Sensitivity: Java is case-sensitive. The variables itemCount, ItemCount, and itemcount are completely different identifiers.`\
+    > The NOT operator `!` reverses the condition.\
+    > Example: `!(x > 5)` → true if x is not greater than 5.
 
-`No Reserved Keywords: You cannot use official Java keywords (e.g., int, class, public, if, void) or literals like true, false, and null`\
+7.  **What is the difference between `a++` and `++a` ?**
 
-1. int age = 20;
+    > `a++` → Post‑increment (use value first, then increase).\
+    > `++a` → Pre‑increment (increase first, then use value).
 
-   > valid
+    ```java
+    int d = 6;
+    int c = 5;
 
+    int a = ++d; // d=7, a=7
+    int b = c++; // c=6, b=5
+    ```
 
-# Part D: Find The Error - Find and correct the mistake.
+8.  **What is a `control` statement?**
 
-```java
-int age = "20"; // declared as int but used double quotation
-int age = 20;
-```
+    > A control statement directs program execution based on conditions.\
+    > Examples: if, else, switch, loops.
 
+9.  **What is a `condition`?**
 
-# Part E: Output Questions
+    > A condition is a `boolean expression` that evaluates to true or false.\
+    > Example: (a > b).
+
+10. **When do we use `if-else` ?**
+
+    > Used when checking one condition.\
+
+    ```java
+    if (a > b) {
+      System.out.println("a is bigger");
+    } else {
+      System.out.println("b is bigger");
+    }
+    ```
+
+11. **When do we use `else-if` ?**
+
+    > Used when checking multiple conditions sequentially.\
+
+    ```java
+    if (a > b) {
+    statement
+    }
+    else if (a == b) {
+    statement
+    }
+    else{
+    statement
+    }
+    ```
+
+12. **When do we use `switch` ?**
+
+    > Used when comparing one variable against many possible values.\
+
+    ```java
+    switch(day) {
+         case 1: System.out.println("Monday"); break;
+         case 2: System.out.println("Tuesday"); break;
+         default: System.out.println("Invalid day");
+    }
+    ```
+
+13. **Why do we use `break` inside `switch` ?**
+
+    > `break` stops execution after a matching case.\
+    > Without it, program continues into the next case (fall‑through).
+
+14. **What is the use of `default` in `switch` ?**
+
+    > `default` executes when no case matches.\
+    > Acts like the `“else”` of switch.
+
+15. **What is `nested if` ?**
+
+    > An if inside another if. Used for deeper checks.\
+
+    ```java
+    if (a > b) {
+       if (a > b + 50) {
+          System.out.println("a is much bigger");
+       }
+       else {
+          System.out.println("a is bigger");
+       }
+    }
+    else {
+       System.out.println("a is smaller");
+    }
+    ```
+
+# Part B: Find The Output
 
 ## `Q.1`
 
 ```java
 public class OutputOne {
- public static void main(String[] args) {
- int age = 20;
- System.out.println(age);
- }
+    public static void main(String[] args) {
+        int a = 10;
+        int b = 3;
+
+        System.out.println(a / b);
+        System.out.println(a % b);
+    }
+}
+```
+
+```java
+// Answere
+3
+1
+```
+
+## `Q.2`
+
+```java
+public class OutputTwo {
+    public static void main(String[] args) {
+        System.out.println(10 + 20);
+        System.out.println("10" + 20);
+        System.out.println("Sum: " + 10 + 20);
+        System.out.println("Sum: " + (10 + 20));
+    }
+}
+```
+
+```java
+// Answere
+30
+1020
+Sum: 1020
+Sum: 30
+```
+
+## `Q.3`
+
+```java
+public class OutputThree {
+    public static void main(String[] args) {
+        int a = 5;
+        int b = a++;
+
+        System.out.println(a);
+        System.out.println(b);
+    }
+}
+```
+
+```java
+// Answere
+6
+5
+```
+
+## `Q.4`
+
+```java
+public class OutputFour {
+    public static void main(String[] args) {
+        int a = 5;
+        int b = ++a;
+
+        System.out.println(a);
+        System.out.println(b);
+    }
+}
+```
+
+```java
+// Answere
+6
+6
+
+/*
+
+1. int a = 5; → initializes a with 5.
+2. int b = ++a; → pre‑increment:
+      a is incremented first → a = 6.
+      Then the value of a (which is 6) is assigned to b.
+      → b = 6.
+3. System.out.println(a); → prints 6.
+4. System.out.println(b); → prints 6.
+
+*/
+```
+
+## `Q.5`
+
+```java
+public class OutputFive {
+    public static void main(String[] args) {
+        int a = 10;
+
+        a += 5;   // a = a + 5 → 15
+        a *= 2;   // a = a * 2 → 30
+        a -= 10;  // a = a - 10 → 20
+
+        System.out.println(a);
+    }
 }
 ```
 
@@ -66,57 +239,406 @@ public class OutputOne {
 20
 ```
 
+## `Q.6`
 
-# Part F: Coding Practice
+```java
+public class OutputSix {
+    public static void main(String[] args) {
+        int marks = 35;
 
-## `Program 1: Personal Details`
+        if (marks >= 40) {
+            System.out.println("Pass");
+        } else {
+            System.out.println("Fail");
+        }
+    }
+}
+```
+
+```java
+// Answere
+Fail
+```
+
+## `Q.7`
+
+```java
+public class OutputSeven {
+    public static void main(String[] args) {
+        int number = 11;
+
+        if (number % 2 == 0) {
+            System.out.println("Even");
+        } else {
+            System.out.println("Odd");
+        }
+    }
+}
+```
+
+```java
+// Answere
+Odd
+```
+
+## `Q.8`
+
+```java
+public class OutputEight {
+    public static void main(String[] args) {
+        int marks = 82;
+
+        if (marks >= 90) {
+            System.out.println("A+");
+        } else if (marks >= 75) {
+            System.out.println("A");
+        } else if (marks >= 60) {
+            System.out.println("B");
+        } else if (marks >= 40) {
+            System.out.println("C");
+        } else {
+            System.out.println("Fail");
+        }
+    }
+}
+```
+
+```java
+// Answere
+A
+```
+
+## `Q.9`
+
+```java
+public class OutputNine {
+    public static void main(String[] args) {
+        int day = 3;
+        switch (day) {
+            case 1:
+                System.out.println("Monday");
+                break;
+            case 2:
+                System.out.println("Tuesday");
+                break;
+            case 3:
+                System.out.println("Wednesday");
+                break;
+            default:
+                System.out.println("Invalid day");
+        }
+    }
+}
+```
+
+```java
+// Answere
+Wednesday
+```
+
+## `Q.10`
+
+```java
+public class OutputTen {
+   public static void main(String[] args) {
+      int day = 2;
+
+      switch (day) {
+         case 1:
+            System.out.println("Monday");
+         case 2:
+            System.out.println("Tuesday");
+         case 3:
+            System.out.println("Wednesday");
+         default:
+            System.out.println("Invalid day");
+      }
+   }
+}
+```
+
+```java
+// Answere
+Tuesday
+Wednesday
+Invalid day
+```
+
+# Part C: Find And Correct The Error
+
+## `Q.1`
+
+```java
+int age == 20; //comparator used to assign value into variable
+
+int age = 20;
+```
+
+## `Q.2`
+
+```java
+if (age >= 18);
+{
+   System.out.println("Eligible");
+}
+// no age variable defined so no meaning of condition, define age variable with value.
+```
+
+## `Q.3`
+
+```java
+int marks = 50;
+
+if marks >= 40 {
+   System.out.println("Pass");
+}
+// invalid syntax
+
+if (marks >=40 ) {
+   System.out.println("Pass");
+}
+```
+
+## `Q.4`
+
+```java
+int day = 1;
+
+switch day {
+   case 1:
+      System.out.println("Monday");
+      break;
+}
+// invalid syntax
+
+switch (day) {
+   case 1:
+      System.out.println("Monday");
+      break;
+}
+```
+
+## `Q.5`
+
+```java
+int number = 10;
+
+if (number % 2 = 0) {
+   System.out.println("Even");
+}
+// invalid condition, use comparator for value check
+
+if (number % 2 == 0) {
+   System.out.println("Even");
+}
 
 ```
-Create variables for:
-   name
-   age
-   city
-   course
-Print all details.
+
+# Part D: Coding Practice
+
+## `Program 1: Simple Calculator`
+
+```
+Create two integer variables and print:
+    addition
+    subtraction
+    multiplication
+    division
+    remainder
 ```
 
 [P1_PersonalDetails.java](./src/P1_PersonalDetails.java)
 
-# Part G: Mini Project
+## `Program 2: Even Or Odd`
 
 ```
-Create a Java program named StudentProfile .
-Store and print:
-   student name
-   roll number
-   college name
-   course name
-   semester
-   Java marks
-   database marks
-   web technology marks
-   total marks
-   percentage
-   grade
-   pass status
+Create one integer variable and check whether it is even or odd.
 ```
 
-```java
-Hint:
-
-   int total = javaMarks + databaseMarks + webTechnologyMarks;
-   double percentage = total / 3.0;
-```
-
-[P6_MiniProject.java](./src/P6_MiniProject.java)
-
-# Part H: Challenge Questions
+## `Program 3: Voting Eligibility`
 
 ```
-These are optional but recommended.
-	1. Why should mobile number usually be stored as String ?
-	2. Why is "99.50" not a double ?
-	3. Why is "true" not a boolean ?
-	4. What happens when we assign a new value to the same variable?
-	5. Write five meaningful variable names using camelCase.
+Create an age variable.
+If age is greater than or equal to 18, print:
+    Eligible to vote
+Otherwise print:
+    Not eligible to vote
 ```
+
+## `Program 4: Pass Or Fail`
+
+```
+Create a marks variable.
+If marks are greater than or equal to 40, print Pass , otherwise print Fail .
+```
+
+## `Program 5: Grade Calculator`
+
+```
+Create a marks variable and print grade:
+```
+
+| Marks | Grade |
+| ----- | ----- |
+| >= 90 | A+    |
+| >= 75 | A     |
+| >= 60 | B     |
+| >= 40 | C     |
+| < 40  | Fail  |
+
+## `Program 6: Positive, Negative, Or Zero`
+
+```
+Create one integer variable.
+Print:
+    Positive number
+    Negative number
+    Zero
+```
+
+## `Program 7: Largest Of Two Numbers`
+
+```
+Create two integer variables and print which number is greater.
+If both numbers are equal, print:
+    Both numbers are equal
+```
+
+## `Program 8: Largest Of Three Numbers`
+
+```
+Create three integer variables and find the largest number.
+```
+
+## `Program 9: Login Check`
+
+```
+Create:
+    String username = "admin";
+    String password = "1234";
+If both are correct, print:
+    Login successful
+Otherwise print:
+    Invalid login
+Note: For now, you may use == . Later we will learn .equals() for String comparison.
+```
+
+## `Program 10: Discount Eligibility`
+
+```
+Create:
+    boolean isStudent = true;
+    boolean isSeniorCitizen = false;
+If student or senior citizen, print:
+    Discount available
+Otherwise print:
+    No discount
+```
+
+## `Program 11: Day Name Using Switch`
+
+```
+Create an integer variable day .
+Print day name:
+For any other value, print:
+    Invalid day
+```
+
+| Value | Day       |
+| ----- | --------- |
+| 1     | Monday    |
+| 2     | Tuesday   |
+| 3     | Wednesday |
+| 4     | Thursday  |
+| 5     | Friday    |
+| 6     | Saturday  |
+| 7     | Sunday    |
+
+## `Program 12: Simple Menu Using Switch`
+
+```
+Create an integer variable choice .
+Print:
+For any other choice, print:
+    Invalid choice
+```
+
+| Choice | Message        |
+| ------ | -------------- |
+| 1      | Add money      |
+| 2      | Withdraw money |
+| 3      | Check balance  |
+| 4      | Exit           |
+
+# Part E: Slightly Challenging Questions
+
+## `Challenge 1: Electricity Bill`
+
+```
+Create variable:
+    int units = 180;
+
+Calculate bill:
+    First 100 units: 5 rupees per unit
+    Next units: 8 rupees per unit
+
+Example:
+For 180 units:
+    100 * 5 + 80 * 8
+```
+
+## `Challenge 2: Simple ATM Withdrawal`
+
+```
+Create:
+    int balance = 5000;
+    int withdrawAmount = 2000;
+
+If withdraw amount is less than or equal to balance, print:
+    Withdrawal successful
+    Remaining balance: 3000
+
+Otherwise print:
+    Insufficient balance
+```
+
+## `Challenge 3: Number Divisible By 3 And 5`
+
+```
+Create one integer variable.
+Check:
+    divisible by both 3 and 5
+    divisible only by 3
+    divisible only by 5
+    not divisible by 3 or 5
+```
+
+## `Challenge 4: Simple Calculator Using Switch`
+
+```
+Create:
+    int a = 20;
+    int b = 5;
+    char operator = '+';
+
+Use switch on operator.
+Support:
++
+-
+*
+/
+%
+```
+
+# Part F: Oral Revision Questions
+
+1. **What does `%` return?**
+2. **What is output of 10 / 3 ?**
+3. **What is difference between = and == ?**
+4. **What does && mean?**
+5. **What does || mean?**
+6. **What happens if if condition is false?**
+7. **Why do we use else-if ?**
+8. **Why do we use break in switch ?**
+9. **What happens if break is missing in switch?**
+10. **When should we use switch instead of if-else ?**
