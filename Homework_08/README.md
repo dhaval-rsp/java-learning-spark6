@@ -6,73 +6,131 @@
    > a\
 3. **What is the difference between process and thread?**
    > a\
+   > a\
+   
 4. **Why do backend applications need multithreading?**
    > a\
+   > a\
+   
 5. **What is the main thread?**
-
+   > a\
    > a\
 
 6. **How can we get the current thread name?**
    > a\
+   
 7. **What are two basic ways to create a thread in Java?**
    > a\
+   
 8. **What is the use of run() method?**
    > a\
+   
 9. **What is the use of start() method?**
    > a\
+   > a\
+   
 10. **What is the difference between start() and run() ?**
     > a\
+    > a\
+	
 11. **Can we start the same thread object twice?**
-
+    > a\
     > a\
 
 12. **What is the use of sleep() ?**
     > a\
+    > a\
+	
 13. **Why does sleep() need exception handling?**
     > a\
+    > a\
+	
 14. **What is the use of join() ?**
     > a\
+    > a\
+	
 15. **Where can we use join() in a real project?**
     > a\
+    > a\
+	
 16. **Does thread priority guarantee execution order?**
     > a\
+    > a\
+	
 17. **What is a daemon thread?**
     > a\
+    > a\
+	
 18. **What is a race condition?**
     > a\
+    > a\
+	
 19. **Why does race condition happen?**
     > a\
+    > a\
+	
 20. **What is the use of synchronized ?**
     > a\
+    > a\
+	
 21. **What is the difference between synchronized method and synchronized block?**
     > a\
+    > a\
+	
 22. **What is ReentrantLock ?**
     > a\
+    > a\
+	
 23. **Why do we write unlock() inside finally ?**
     > a\
+    > a\
+	
 24. **What is the use of tryLock() ?**
     > a\
+    > a\
+	
 25. **What is the difference between synchronized and Lock ?**
     > a\
+    > a\
+	
 26. **What is Executor Framework?**
     > a\
+    > a\
+	
 27. **Why is ExecutorService better than creating raw threads again and again?**
     > a\
+    > a\
+	
 28. **What is FixedThreadPool?**
     > a\
+    > a\
+	
 29. **What is SingleThreadExecutor?**
     > a\
+    > a\
+	
 30. **What is ScheduledExecutorService?**
     > a\
+    > a\
+	
 31. **What is the difference between execute() and submit() ?**
     > a\
+    > a\
+	
 32. **What is Callable ?**
     > a\
+    > a\
+	
 33. **What is Future ?**
     > a\
+    > a\
+	
 34. **What is the use of future.get() ?**
     > a\
+    > a\
+	
 35. **What is the difference between invokeAll() and invokeAny() ?**
+    > a\
     > a\
 
 # Part B: Find The Output
