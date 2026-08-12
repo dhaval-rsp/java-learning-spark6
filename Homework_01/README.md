@@ -363,9 +363,26 @@ Hint:
 
 ```
 These are optional but recommended.
-	1. Why should mobile number usually be stored as String ?
-	2. Why is "99.50" not a double ?
-	3. Why is "true" not a boolean ?
-	4. What happens when we assign a new value to the same variable?
-	5. Write five meaningful variable names using camelCase.
 ```
+
+1. Why should mobile number usually be stored as String ?
+
+   > Mobile number has special character '+' so "+911234567890" has to be string.
+
+2. Why is "99.50" not a double ?
+
+   > Anything inside string cannot be numerical value
+
+3. Why is "true" not a boolean ?
+
+   > because it is written inside quotation which makes it string
+
+4. What happens when we assign a new value to the same variable?
+
+   > old value gets replaced with new value
+
+5. Write five meaningful variable names using camelCase.
+   > studentName\
+   > favouriteBook\
+   > isSalaryCredited\
+   > isLock\
