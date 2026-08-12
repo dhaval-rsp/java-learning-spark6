@@ -447,13 +447,15 @@ Create two integer variables and print:
     remainder
 ```
 
-[P1_PersonalDetails.java](./src/P1_PersonalDetails.java)
+[P1_SimpleCalculator.java](./src/P1_SimpleCalculator.java)
 
 ## `Program 2: Even Or Odd`
 
 ```
 Create one integer variable and check whether it is even or odd.
 ```
+
+[P2_EvenOrOdd.java](./src/P2_EvenOrOdd.java)
 
 ## `Program 3: Voting Eligibility`
 
@@ -465,12 +467,16 @@ Otherwise print:
     Not eligible to vote
 ```
 
+[P3_VotingEligibility.java](./src/P3_VotingEligibility.java)
+
 ## `Program 4: Pass Or Fail`
 
 ```
 Create a marks variable.
 If marks are greater than or equal to 40, print Pass , otherwise print Fail .
 ```
+
+[P4_PassOrFail.java](./src/P4_PassOrFail.java)
 
 ## `Program 5: Grade Calculator`
 
@@ -486,6 +492,8 @@ Create a marks variable and print grade:
 | >= 40 | C     |
 | < 40  | Fail  |
 
+[P5_GradeCalculator.java](./src/P5_GradeCalculator.java)
+
 ## `Program 6: Positive, Negative, Or Zero`
 
 ```
@@ -496,6 +504,8 @@ Print:
     Zero
 ```
 
+[P6_PositiveNegativeOrZero.java](./src/P6_PositiveNegativeOrZero.java)
+
 ## `Program 7: Largest Of Two Numbers`
 
 ```
@@ -504,11 +514,15 @@ If both numbers are equal, print:
     Both numbers are equal
 ```
 
+[P7_LargestOfTwoNumbers.java](./src/P7_LargestOfTwoNumbers.java)
+
 ## `Program 8: Largest Of Three Numbers`
 
 ```
 Create three integer variables and find the largest number.
 ```
+
+[P8_LargestOfThreeNumbers.java](./src/P8_LargestOfThreeNumbers.java)
 
 ## `Program 9: Login Check`
 
@@ -523,6 +537,8 @@ Otherwise print:
 Note: For now, you may use == . Later we will learn .equals() for String comparison.
 ```
 
+[P9_LoginCheck.java](./src/P9_LoginCheck.java)
+
 ## `Program 10: Discount Eligibility`
 
 ```
@@ -534,6 +550,8 @@ If student or senior citizen, print:
 Otherwise print:
     No discount
 ```
+
+[P10_DiscountEligibility.java](./src/P10_DiscountEligibility.java)
 
 ## `Program 11: Day Name Using Switch`
 
@@ -554,6 +572,8 @@ For any other value, print:
 | 6     | Saturday  |
 | 7     | Sunday    |
 
+[P11_DayNameUsingSwitch.java](./src/P11_DayNameUsingSwitch.java)
+
 ## `Program 12: Simple Menu Using Switch`
 
 ```
@@ -569,6 +589,8 @@ For any other choice, print:
 | 2      | Withdraw money |
 | 3      | Check balance  |
 | 4      | Exit           |
+
+[P12_SimpleMenuUsingSwitch.java](./src/P12_SimpleMenuUsingSwitch.java)
 
 # Part E: Slightly Challenging Questions
 
@@ -587,6 +609,8 @@ For 180 units:
     100 * 5 + 80 * 8
 ```
 
+[C1_ElectricityBill.java](./src/C1_ElectricityBill.java)
+
 ## `Challenge 2: Simple ATM Withdrawal`
 
 ```
@@ -602,6 +626,8 @@ Otherwise print:
     Insufficient balance
 ```
 
+[C2_SimpleATMWithdrawal.java](./src/C2_SimpleATMWithdrawal.java)
+
 ## `Challenge 3: Number Divisible By 3 And 5`
 
 ```
@@ -612,6 +638,8 @@ Check:
     divisible only by 5
     not divisible by 3 or 5
 ```
+
+[C3_NumberDivisibleBy3And5.java](./src/C3_NumberDivisibleBy3And5.java)
 
 ## `Challenge 4: Simple Calculator Using Switch`
 
@@ -630,15 +658,108 @@ Support:
 %
 ```
 
+[C4_SimpleCalculatorUsingSwitch.java](./src/C4_SimpleCalculatorUsingSwitch.java)
+
 # Part F: Oral Revision Questions
 
-1. **What does `%` return?**
-2. **What is output of 10 / 3 ?**
-3. **What is difference between = and == ?**
-4. **What does && mean?**
-5. **What does || mean?**
-6. **What happens if if condition is false?**
-7. **Why do we use else-if ?**
-8. **Why do we use break in switch ?**
-9. **What happens if break is missing in switch?**
-10. **When should we use switch instead of if-else ?**
+1.  **What does `%` return?**
+
+    > % is the modulus operator.\
+    > It returns the remainder after division.\
+
+    ```
+    Example:
+    10 % 3 = 1 (since 10 ÷ 3 = 3 remainder 1)
+    15 % 4 = 3 (since 15 ÷ 4 = 3 remainder 3)
+    ```
+
+2.  **What is output of 10 / 3 ?**
+
+    > In most programming languages (like Java, C, C++), dividing two integers gives an integer result (fraction is discarded). \
+    > 10 / 3 = 3 (not 3.33, because decimals are cut off).\
+    > If you use floating-point numbers:\
+    > 10.0 / 3.0 = 3.333...
+
+3.  **What is difference between `=` and `==` ?**
+
+    > = → Assignment operator (used to assign values).\
+    > Example: x = 5 means store value 5 in variable x.\
+    > == → Comparison operator (used to check equality).\
+    > Example: x == 5 checks if x is equal to 5.
+
+4.  **What does `&&` mean?**
+
+    > && is the logical AND operator.\
+    > It returns true only if both conditions are true.
+
+    ```
+    Example:
+    (5 > 3 && 10 > 2) → true
+    (5 > 3 && 2 > 10) → false
+    ```
+
+5.  **What does `||` mean?**
+
+    > || is the logical OR operator.\
+    > It returns true if at least one condition is true.\
+
+    ```
+    Example:
+    (5 > 3 || 2 > 10) → true
+    (2 > 5 || 1 > 10) → false
+    ```
+
+6.  **What happens if `if` condition is false?**
+
+    > If the condition inside if is false, the code inside the if block is skipped.\
+
+    ```java
+    if (5 < 3) {
+    System.out.println("True");
+    }
+    ```
+
+7.  **Why do we use `else-if` ?**
+
+    > To check multiple conditions one after another.\
+
+    ```java
+    if (marks >= 90) {
+        grade = "A";
+    } else if (marks >= 75) {
+        grade = "B";
+    } else {
+        grade = "C";
+    }
+    ```
+
+8.  **Why do we use `break` in `switch` ?**
+
+    > break stops execution after a matching case is found.\
+    > Without break, program continues executing the next cases (called fall-through).
+
+9.  **What happens if `break` is `missing` in switch?**
+
+    > The program will continue executing all following cases until it finds a break or reaches the end.
+
+    ```java
+    int day = 2;
+    switch(day) {
+    case 1: System.out.println("Monday");
+    case 2: System.out.println("Tuesday");
+    case 3: System.out.println("Wednesday");
+    }
+    // output
+    //Tuesday
+    //Wednesday
+    ```
+
+10. **When should we use `switch` instead of `if-else` ?**
+    > Use switch when you are checking one variable against many fixed values.
+    ```java
+    switch(color) {
+    case "red": System.out.println("Stop");
+    case "green": System.out.println("Go");
+    case "yellow": System.out.println("Wait");
+    }
+    ```
