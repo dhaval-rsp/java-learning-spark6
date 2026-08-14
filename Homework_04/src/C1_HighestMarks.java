@@ -1,8 +1,3 @@
-class   StudentMarks{
-    String name;
-    int marks;
-}
-
 public class C1_HighestMarks {
     public static void main(String[] args) {
         StudentMarks[] s = new StudentMarks[4];
@@ -34,3 +29,15 @@ public class C1_HighestMarks {
         System.out.println("Topper is " + topper.name + " with marks " + topper.marks);
     }
 }
+
+class   StudentMarks{
+    String name;
+    int marks;
+}
+
+/*
+## `Challenge 1: Highest Marks`
+
+Create three Student objects.
+Use if-else inside main to print the student with the highest marks.
+ */

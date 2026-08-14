@@ -1,39 +1,43 @@
 public class P2_MultipleStudent {
     public static void main(String[] args) {
-        Student s1 = new Student();
-        Student s2 = new Student();
-        Student s3 = new Student();
 
-        s1.name = "Akash";
-        s1.rollNumber = 21;
-        s1.age = 23;
-        s1.marks = 99;
+        // Using array to create 3 students
+        Student[] s = new Student[3]; // Student class is in same package in P1_StudentDetails file
 
-        s2.name = "Prabal";
-        s2.rollNumber = 22;
-        s2.age = 24;
-        s2.marks = 89;
+        // Create Student objects
+        s[0] = new Student();
+        s[1] = new Student();
+        s[2] = new Student();
 
-        s3.name = "PK";
-        s3.rollNumber = 23;
-        s3.age = 25;
-        s3.marks = 69;
+        s[0].name = "Akash";
+        s[0].rollNumber = 21;
+        s[0].age = 23;
+        s[0].marks = 99;
 
-        System.out.println(s1.name);
-        System.out.println(s1.rollNumber);
-        System.out.println(s1.age);
-        System.out.println(s1.marks);
-        System.out.println("---------------");
-        System.out.println(s2.name);
-        System.out.println(s2.rollNumber);
-        System.out.println(s2.age);
-        System.out.println(s2.marks);
-        System.out.println("---------------");
-        System.out.println(s3.name);
-        System.out.println(s3.rollNumber);
-        System.out.println(s3.age);
-        System.out.println(s3.marks);
-        System.out.println("---------------");
+        s[1].name = "Prabal";
+        s[1].rollNumber = 22;
+        s[1].age = 24;
+        s[1].marks = 89;
 
+        s[2].name = "PK";
+        s[2].rollNumber = 23;
+        s[2].age = 25;
+        s[2].marks = 69;
+
+        // Print details
+        for (int i = 0; i < s.length; i++) {
+            System.out.println(s[i].name);
+            System.out.println(s[i].rollNumber);
+            System.out.println(s[i].age);
+            System.out.println(s[i].marks);
+            System.out.println("---------------");
+        }
     }
 }
+
+/*
+## `Program 2: Multiple Students`
+
+Create three Student objects with different names, roll numbers, and marks.
+Print the details of all three objects.
+ */

@@ -418,7 +418,15 @@ public class Main {
 //	3. Correct the code.
 
 // Answere
+// The error is ArrayIndexOutOfBoundsException.
+// It happens because valid indices are 0, 1, 2 but code tries to access index 3.
 
+public class Main {
+    public static void main(String[] args) {
+        int[] numbers = {10, 20, 30};
+        System.out.println(numbers[2]); // last valid index
+    }
+}
 ```
 
 ## `Question 2`
@@ -443,7 +451,18 @@ class Student {
 //	3. Correct the code using this .
 
 // Answere
+// The constructor assigns parameters to themselves instead of object fields.
+// Object fields will remain with default values (null for String, 0 for int).
 
+class Student {
+    String name;
+    int age;
+
+    Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+}
 ```
 
 ## `Question 3`
@@ -470,7 +489,21 @@ class B extends A {
 //	3. Correct the code.
 
 // Answere
+// The error is call to super must be first statement in constructor.
+// It happens because super() must be the first line in the child constructor.
 
+class A {
+    A() {
+        System.out.println("A");
+    }
+}
+
+class B extends A {
+    B() {
+        super(); // must be first
+        System.out.println("B");
+    }
+}
 ```
 
 ## `Question 4`
@@ -493,6 +526,12 @@ class Child extends Parent {
 ```java
 //Is this method overriding or method overloading?
 //Explain your answer.
+
+// This is method overloading, not overriding.
+// Overloading: same method name but different parameter list.
+// Overriding: same method signature in parent and child.
+// Here, show() vs show(int number) → different parameters → overloading.
+
 ```
 
 ## `Question 5`
@@ -519,7 +558,41 @@ public class Main {
 //	3. Rewrite the class using private field and methods.
 
 // Answere
+// The design problem is that balance is public and can be set to invalid values.
+// Encapsulation (private fields + controlled access) solves it.
 
+class BankAccount {
+    private double balance;
+
+    public void deposit(double amount) {
+        if(amount > 0) {
+            balance += amount;
+        } else {
+            System.out.println("Invalid deposit");
+        }
+    }
+
+    public void withdraw(double amount) {
+        if(amount > 0 && amount <= balance) {
+            balance -= amount;
+        } else {
+            System.out.println("Invalid withdraw");
+        }
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        BankAccount account = new BankAccount();
+        account.deposit(1000);
+        account.withdraw(500);
+        System.out.println("Balance: " + account.getBalance());
+    }
+}
 ```
 
 # Part D: Coding Practice

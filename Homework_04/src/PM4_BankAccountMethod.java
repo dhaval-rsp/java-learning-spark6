@@ -1,3 +1,24 @@
+public class PM4_BankAccountMethod {
+    public static void main(String[] args) {
+
+        BankAccount sbi = new BankAccount();
+        sbi.accountHolder = "Dhaval Prajapai";
+        sbi.balance = 250000;
+
+        sbi.displayBalance();
+        System.out.println("------------------------------");
+
+        sbi.deposit(50000);
+        sbi.displayBalance();
+        System.out.println("------------------------------");
+
+        sbi.withdraw(10000);
+        sbi.displayBalance();
+        System.out.println("------------------------------");
+
+    }
+}
+
 class BankAccount{
     String accountHolder;
     double balance;
@@ -15,7 +36,7 @@ class BankAccount{
     void withdraw(double amount){
         if (amount >= 0 && amount <= balance){
             balance -= amount;
-            System.out.println(amount + " withdrawal completed!!");
+            System.out.println("Withdrawal of " + amount + " completed!!");
         }
         else if (amount > balance){
             System.out.println("Insufficient balance.");
@@ -31,21 +52,17 @@ class BankAccount{
     }
 }
 
-public class PM4_BankAccountMethod {
-    public static void main(String[] args) {
+/*
+## `Program 4: Bank Account`
 
-        BankAccount sbi = new BankAccount();
-        sbi.accountHolder = "Dhaval Prajapai";
-        sbi.balance = 250000;
+Create a BankAccount class containing:
+	String accountHolder;
+	double balance;
 
-        sbi.displayBalance();
-        System.out.println("------------------------------");
-        sbi.deposit(50000);
-        sbi.displayBalance();
-        System.out.println("------------------------------");
-        sbi.withdraw(10000);
-        sbi.displayBalance();
-        System.out.println("------------------------------");
+Add methods:
+	void deposit(double amount)
+	void withdraw(double amount)
+	void displayBalance()
 
-    }
-}
+Do not allow withdrawal when the amount is greater than the balance.
+ */

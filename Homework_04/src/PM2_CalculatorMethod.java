@@ -1,20 +1,3 @@
-import org.w3c.dom.ls.LSOutput;
-
-class Calculator{
-    int add(int a, int b){
-        return a+b;
-    }
-    int subtract(int a, int b){
-        return a-b;
-    }
-    int multiply(int a, int b){
-        return a*b;
-    }
-    int divide(int a, int b){
-        return a/b;
-    }
-
-}
 public class PM2_CalculatorMethod {
     public static void main(String[] args) {
 
@@ -32,3 +15,35 @@ public class PM2_CalculatorMethod {
     }
 
 }
+
+class Calculator{
+
+    int add (int a, int b){
+        return a+b;
+    }
+
+    int subtract (int a, int b){
+        return a-b;
+    }
+
+    int multiply (int a, int b){
+        return a*b;
+    }
+
+    int divide (int a, int b){
+        return a/b;
+    }
+
+}
+
+/*
+## `Program 2: Calculator`
+
+Create a Calculator class with methods:
+	int add(int a, int b)
+	int subtract(int a, int b)
+	int multiply(int a, int b)
+	double divide(double a, double b)
+
+Create an object and call every method.
+ */

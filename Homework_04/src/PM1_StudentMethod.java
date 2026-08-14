@@ -1,16 +1,3 @@
-class StudentM{
-
-    String name;
-    int rollNumber;
-    int age;
-    int marks;
-
-    void displayDetails(){
-        System.out.println("The student name is " + name + " with roll no: " + rollNumber + " & age " + age + ".");
-        System.out.println("Total Marks Scored: " + marks);
-    }
-}
-
 public class PM1_StudentMethod {
     public static void main(String[] args) {
         StudentM s1 = new StudentM();
@@ -23,3 +10,29 @@ public class PM1_StudentMethod {
         s1.displayDetails();
     }
 }
+
+class StudentM{
+
+    String name;
+    int rollNumber;
+    int age;
+    int marks;
+
+    void displayDetails(){
+
+        System.out.println("The student name is " + name +
+                " with roll no: " + rollNumber +
+                " & age " + age + ".");
+
+        System.out.println("Total Marks Scored: " + marks);
+    }
+}
+
+/*
+## `Program 1: Student Method`
+
+Add a method to the Student class:
+void displayDetails()
+
+The method should print all fields of the current object
+*/

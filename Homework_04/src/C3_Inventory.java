@@ -1,3 +1,22 @@
+public class C3_Inventory {
+    public static void main(String[] args) {
+        ProductInventory p1 = new ProductInventory();
+
+        p1.name = "HD Monitor";
+        p1.stock = 255;
+
+        p1.currentStock();
+
+        p1.addStock(25);
+
+        p1.currentStock();
+
+        p1.sell(281);
+
+        p1.currentStock();
+    }
+}
+
 class ProductInventory{
     String name;
     int stock;
@@ -21,20 +40,18 @@ class ProductInventory{
     }
 }
 
-public class C3_Inventory {
-    public static void main(String[] args) {
-        ProductInventory p1 = new ProductInventory();
+/*
+## `Challenge 3: Inventory`
 
-        p1.name = "HD Monitor";
-        p1.stock = 255;
+```
+Create a Product class with:
+	String name;
+	int stock;
 
-        p1.currentStock();
-        p1.addStock(25);
-        p1.currentStock();
-        p1.sell(281);
-        p1.currentStock();
-        //System.out.println("We have " + p1.stock + " "+ p1.name+ " Right Now");
+Add methods:
+	void addStock(int quantity)
+	void sell(int quantity)
 
-
-    }
-}
+Do not allow sales greater than available stock.
+```
+ */

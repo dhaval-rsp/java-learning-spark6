@@ -1,5 +1,24 @@
 import java.text.DecimalFormat;
-class ProductNew{
+
+public class PM5_ProductServiceMethod {
+    public static void main(String[] args) {
+
+        ProductDetails p1 = new ProductDetails();
+        p1.name = "Apple Iphone";
+        p1.price = 110000;
+        p1.quantity = 235;
+
+        double resTotalAmount = p1.calculateTotal();
+        DecimalFormat df = new DecimalFormat("#,###");
+
+        System.out.println("Your product is " + p1.name +
+                " with quantity: " + p1.quantity);
+
+        System.out.println("Price of each unit is " + p1.price + " and total amount is " + df.format(resTotalAmount));
+    }
+}
+
+class ProductDetails{
 
     String name;
     double price;
@@ -10,18 +29,12 @@ class ProductNew{
     }
 }
 
-public class PM5_ProductServiceMethod {
-    public static void main(String[] args) {
+/*
+## `Program 5: Product Service`
 
-        ProductNew p1 = new ProductNew();
-        p1.name = "Apple Iphone";
-        p1.price = 110000;
-        p1.quantity = 235;
+Add a method:
+	double calculateTotal()
 
-        double resTotalAmount = p1.calculateTotal();
-        DecimalFormat df = new DecimalFormat("#,###");
-
-        System.out.println("Your product is " + p1.name + " with quantity: " + p1.quantity);
-        System.out.println(df.format(resTotalAmount));
-    }
-}
+It should return:
+	price * quantity
+ */

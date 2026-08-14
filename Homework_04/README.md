@@ -551,7 +551,7 @@ In another class containing main :
 	3. Print all details
 ```
 
-[P1.java](./src/P1)
+[P1_StudentDetails.java](./src/P1_StudentDetails.java)
 
 ## `Program 2: Multiple Students`
 
@@ -560,7 +560,7 @@ Create three Student objects with different names, roll numbers, and marks.
 Print the details of all three objects.
 ```
 
-[P2.java](./src/P2)
+[P2_MultipleStudent.java](./src/P2_MultipleStudent.java)
 
 ## `Program 3: Car Details`
 
@@ -574,7 +574,7 @@ Create a Car class containing:
 Create two objects and print their details
 ```
 
-[P3.java](./src/P3)
+[P3_CarDetails.java](./src/P3_CarDetails.java)
 
 ## `Program 4: Employee Details`
 
@@ -587,7 +587,7 @@ Create an Employee class containing:
 Create an object and calculate annual salary inside main .
 ```
 
-[P4.java](./src/4)
+[P4_EmployeeDetails.java](./src/P4_EmployeeDetails.java)
 
 ## `Program 5: Product Details`
 
@@ -600,7 +600,7 @@ Create a Product class containing:
 Create an object and calculate total price
 ```
 
-[P5.java](./src/P5)
+[P5_ProductDetails.java](./src/P5_ProductDetails.java)
 
 # Part F: Method Programs
 
@@ -613,7 +613,7 @@ Add a method to the Student class:
 The method should print all fields of the current object
 ```
 
-[PM1.java](./src/PM1)
+[PM1_StudentMethod.java](./src/PM1_StudentMethod.java)
 
 ## `Program 2: Calculator`
 
@@ -627,7 +627,7 @@ Create a Calculator class with methods:
 Create an object and call every method.
 ```
 
-[PM2.java](./src/PM2)
+[PM2_CalculatorMethod.java](./src/PM2_CalculatorMethod.java)
 
 ## `Program 3: Rectangle`
 
@@ -641,7 +641,7 @@ Add methods:
 	double calculatePerimeter()
 ```
 
-[PM3.java](./src/PM3)
+[PM3_RectangleMethod.java](./src/PM3_RectangleMethod.java)
 
 ## `Program 4: Bank Account`
 
@@ -658,7 +658,7 @@ Add methods:
 Do not allow withdrawal when the amount is greater than the balance.
 ```
 
-[PM4.java](./src/PM4)
+[PM4_BankAccountMethod.java](./src/PM4_BankAccountMethod.java)
 
 ## `Program 5: Product Service`
 
@@ -670,7 +670,7 @@ It should return:
 	price * quantity
 ```
 
-[PM5.java](./src/PM5)
+[PM5_ProductServiceMethod.java](./src/PM5_ProductServiceMethod.java)
 
 ## `Program 6: Pass Or Fail`
 
@@ -682,7 +682,7 @@ Add:
 Return "Pass" when marks are at least 40; otherwise return "Fail"
 ```
 
-[PM6.java](./src/PM6)
+[PM6_PassOrFailMethod.java](./src/PM6_PassOrFailMethod.java)
 
 # Part G: Method-Type Practice
 
@@ -696,7 +696,7 @@ Write one example for each type:
 Use a Calculator , Student , or Message class.
 ```
 
-[PM1.java](./src/PM1)
+[PM7_MethodTypePractice.java](./src/PM7_MethodTypePractice.java)
 
 # Part H: Combined Challenges
 
@@ -708,7 +708,7 @@ Use if-else inside main to print the student with the highest marks.
 
 ```
 
-[C1.java](./src/C1)
+[C1_HighestMarks.java](./src/C1_HighestMarks.java)
 
 ## `Challenge 2: Salary Update`
 
@@ -723,7 +723,7 @@ Add:
 The method should update the object's salary.
 ```
 
-[C2.java](./src/C2)
+[C2_SalaryUpdate.java](./src/C2_SalaryUpdate.java)
 
 ## `Challenge 3: Inventory`
 
@@ -739,7 +739,7 @@ Add methods:
 Do not allow sales greater than available stock.
 ```
 
-[C3.java](./src/C3)
+[C3_Inventory.java](./src/C3_Inventory.java)
 
 ## `Challenge 4: Object Array`
 
