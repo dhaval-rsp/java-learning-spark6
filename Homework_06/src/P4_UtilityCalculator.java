@@ -36,4 +36,14 @@ class Calculator {
     }
 }
 
+/*
+## `Program 4: Utility Calculator`
+
+Create a Calculator class with static methods:
+	add(int a, int b)
+	subtract(int a, int b)
+	multiply(int a, int b)
+	divide(int a, int b)
+Call all methods using class name
+ */
 

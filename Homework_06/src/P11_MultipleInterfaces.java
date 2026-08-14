@@ -8,7 +8,6 @@ public class P11_MultipleInterfaces {
     }
 }
 
-
 interface Printable {
     void print();
 }
@@ -32,3 +31,15 @@ class PrinterMachine implements Printable, Scannable {
 }
 
 
+/*
+## `Program 11: Multiple Interfaces`
+
+Create two interfaces:
+	Printable
+		- print()
+	Scannable
+		- scan()
+
+Create class PrinterMachine that implements both interfaces.
+Call both methods from main method.
+ */

@@ -28,6 +28,7 @@ abstract class Shape {
 class Circle extends Shape {
 
     private double radius;
+
     public Circle(double radius) {
         this.radius = radius;
     }
@@ -57,5 +58,17 @@ class Rectangle extends Shape {
     }
 }
 
+/*
+## `Program 8: Abstract Class`
 
+Create an abstract class Shape with:
+	abstract method calculateArea()
+	normal method showMessage()
+
+Create child classes:
+	Circle
+	Rectangle
+
+Implement calculateArea() in both child classes.
+ */
 

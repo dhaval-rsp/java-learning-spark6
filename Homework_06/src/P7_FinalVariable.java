@@ -16,3 +16,12 @@ class Exam{
     }
 }
 
+/*
+## `Program 7: Final Variable`
+
+Create a class Exam with:
+	final variable MAX_MARKS = 100
+	method showMaxMarks()
+
+Try to change MAX_MARKS and write the error reason in comments.
+ */

@@ -6,7 +6,8 @@ public class P5_StaticBlock {
 
 class DatabaseConfig {
 
-    static String databaseName; // static db name
+    // static db name
+    static String databaseName;
 
     // static block to initiate db name
     static {
@@ -20,3 +21,13 @@ class DatabaseConfig {
     }
 }
 
+/*
+## `Program 5: Static Block`
+
+Create a class DatabaseConfig with:
+	static variable databaseName
+	static block that initializes databaseName
+	static method showDatabaseName()
+
+Call showDatabaseName() from main method.
+ */

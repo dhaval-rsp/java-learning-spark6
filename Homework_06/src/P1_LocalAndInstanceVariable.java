@@ -6,20 +6,23 @@ public class P1_LocalAndInstanceVariable {
     }
 }
 
-
 class Student {
-    private String name; // instance var
-    private int marks; //instance var
+
+    // instance variables
+    private String name;
+    private int marks;
 
     // created constructor to make easy use of code
     public Student(String name, int marks) {
+
         this.name = name;
         this.marks = marks;
     }
 
     void showResult() {
 
-        String result; // local var
+        // local variable
+        String result;
 
         if (marks >= 40){
             result= "Pass";
@@ -27,8 +30,23 @@ class Student {
         else {
             result = "Fail";
         }
-        System.out.println("Student " + name + " has scored marks = " + marks + " and result is " + result);
+        System.out.println("Student " + name +
+                " has scored marks = " + marks +
+                " and result is " + result);
     }
 }
 
 
+/*
+## `Program 1: Local And Instance Variable`
+
+Create a Student class with:
+	instance variable name
+	instance variable marks
+	method showResult()
+
+Inside showResult() , create a local variable result .
+If marks are greater than or equal to 40, store "Pass" in result , otherwise store "Fail" .
+
+Print student name, marks, and result.
+ */

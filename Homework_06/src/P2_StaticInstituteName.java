@@ -18,6 +18,7 @@ public class P2_StaticInstituteName {
 }
 
 class Student2{
+
     int rollNumber;
     String name;
     static String instituteName = "GTU";
@@ -26,9 +27,23 @@ class Student2{
         this.name = name;
         this.rollNumber = rollNumber;
     }
+
     void showDetails(){
-        System.out.println("Student " + name + " with roll no = " + rollNumber + " and the institute name is " + instituteName);
+        System.out.println("Student " + name +
+                " with roll no = " + rollNumber +
+                " and the institute name is " + instituteName);
     }
 }
 
+/*
+## `Program 2: Static Institute Name`
 
+Create a Student class with:
+	instance variable rollNumber
+	instance variable name
+	static variable instituteName
+	method showDetails()
+
+Create 3 student objects and print details.
+Change institute name using class name and print details again
+ */

@@ -9,7 +9,6 @@ public class P10_Interface {
     }
 }
 
-
 // Interface
 interface NotificationService {
     void send(String message);
@@ -31,3 +30,16 @@ class SmsService implements NotificationService {
     }
 }
 
+/*
+## `Program 10: Interface`
+
+Create an interface NotificationService with:
+	void send(String message);
+
+Create two classes:
+	EmailService
+	SmsService
+
+Both classes should implement NotificationService .
+In main method, create interface reference and call both implementations.
+ */

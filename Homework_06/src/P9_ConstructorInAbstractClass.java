@@ -1,13 +1,12 @@
 public class P9_ConstructorInAbstractClass {
     public static void main(String[] args) {
 
-        StudentAbs s = new StudentAbs("Jatin","CSE");
+        StudentDetail s = new StudentDetail("Jatin","CSE");
 
         s.showName();
         s.showStudentDetails();
     }
 }
-
 
 abstract class User{
     String name;
@@ -22,12 +21,12 @@ abstract class User{
     }
 }
 
-class StudentAbs extends User {
+class StudentDetail extends User {
 
     String course;
 
     // constructor using super
-    public StudentAbs(String name, String course) {
+    public StudentDetail(String name, String course) {
         super(name); // call parent constructor
         this.course = course;
     }
@@ -38,3 +37,18 @@ class StudentAbs extends User {
     }
 }
 
+/*
+## `Program 9: Constructor In Abstract Class`
+
+Create an abstract class User with:
+	instance variable name
+	constructor to initialize name
+	normal method showName()
+
+Create child class Student with:
+	instance variable course
+	constructor using super(name)
+	method showStudentDetails()
+
+Create object of Student and print details
+ */

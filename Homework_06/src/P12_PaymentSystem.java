@@ -33,6 +33,7 @@ abstract class BasePayment {
 
 // UPI Payment class
 class UpiPayment extends BasePayment implements PaymentGateway {
+
     String upiId;
 
     public UpiPayment(String transactionId, String upiId) {
@@ -49,6 +50,7 @@ class UpiPayment extends BasePayment implements PaymentGateway {
 
 // card payment
 class CardPayment extends BasePayment implements PaymentGateway {
+
     String cardNumber;
 
     public CardPayment(String transactionId, String cardNumber) {
@@ -63,7 +65,33 @@ class CardPayment extends BasePayment implements PaymentGateway {
     }
 }
 
+/*
+## `Program 12: Payment System`
 
+Create:
 
+interface PaymentGateway
+	- pay(double amount)
 
+abstract class BasePayment
+	- static appName
+	- transactionId
+	- constructor
+	- printReceipt()
 
+class UpiPayment extends BasePayment implements PaymentGateway
+	- upiId
+	- constructor
+	- pay(double amount)
+
+class CardPayment extends BasePayment implements PaymentGateway
+	- cardNumber
+	- constructor
+	- pay(double amount)
+
+In main method:
+	1. Create one UPI payment object.
+	2. Create one card payment object.
+	3. Use PaymentGateway reference.
+	4. Call pay() method.
+ */

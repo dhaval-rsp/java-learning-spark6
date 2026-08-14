@@ -25,3 +25,11 @@ class StudentNew{
 }
 
 
+/*
+## `Program 3: Object Counter`
+
+Create a Student class with:
+	static variable studentCount
+	constructor that increases studentCount
+	static method showTotalStudents()
+ */
