@@ -9,6 +9,7 @@ public class P5_ConstructorOverloading {
 }
 
 class Employee{
+
     private int id;
     private String name;
     private double salary = 15000; // default salary if not provided in constructor
@@ -31,4 +32,17 @@ class Employee{
     }
 }
 
+/*
+## `Program 5: Constructor Overloading`
 
+Create an Employee class with:
+	id
+	name
+	salary
+
+Create two constructors:
+	Employee(int id, String name)
+	Employee(int id, String name, double salary)
+
+If salary is not provided, store salary as 15000 .
+ */

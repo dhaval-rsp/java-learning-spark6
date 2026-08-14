@@ -36,3 +36,16 @@ class Product{
 
 }
 
+/*
+## `Program 4: Product Bill`
+
+Create a Product class with:
+	name
+	price
+	Genie Ashwani
+	quantity
+	parameterized constructor
+	calculateTotal() method
+	showBill() method
+Create 3 products and print the total bill amount.
+ */

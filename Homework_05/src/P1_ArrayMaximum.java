@@ -16,3 +16,12 @@ public class P1_ArrayMaximum {
         System.out.println("Maximum value of element is: " + maxVal);
     }
 }
+
+/*
+## `Program 1: Array Maximum`
+
+Create an integer array of 5 numbers and print the largest number.
+Example:
+	Input array: 12, 45, 23, 67, 34
+	Output: 67
+ */

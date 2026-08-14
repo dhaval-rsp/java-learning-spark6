@@ -5,14 +5,19 @@ public class P8_MethodOverriding {
         Account s1 = new SavingAccount(100, 2);
         Account c1 = new CurrentAccount(100, 2);
 
-        a1.calculateInterest(); // general interest at given 5%
-        s1.calculateInterest(); // saving interest fixed at 6%
-        c1.calculateInterest(); // no interest in current
-
+        // general interest at given 5%
+        a1.calculateInterest();
         System.out.println("P = " + a1.principal + ", R = " + a1.roiAnnual + ", T = " + a1.period);
+
+        // saving interest fixed at 6%
+        s1.calculateInterest();
+        System.out.println("P = " + s1.principal + ", R = " + s1.roiAnnual + ", T = " + s1.period);
+
+        // no interest in current
+        c1.calculateInterest();
+        System.out.println("P = " + c1.principal + ", R = " + c1.roiAnnual + ", T = " + c1.period);
     }
 }
-
 
 // Parent account
 class Account{
@@ -63,3 +68,15 @@ class CurrentAccount extends Account{
     }
 }
 
+/*
+## `Program 8: Method Overriding`
+
+Create a class Account with method:
+	void calculateInterest()
+
+Create two child classes:
+	SavingsAccount
+	CurrentAccount
+
+Override calculateInterest() in both child classes.
+ */

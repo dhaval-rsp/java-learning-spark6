@@ -57,3 +57,32 @@ class Trainer extends User{
     }
 }
 
+/*
+## `Program 10: Mini OOP System`
+
+Create an online learning system.
+Parent class:
+	User
+	- name
+	- email
+	- constructor
+	- showProfile()
+
+Child class 1:
+Student extends User
+	- courseName
+	- constructor
+	- showProfile()
+
+Child class 2:
+Trainer extends User
+	- subject
+	- constructor
+	- showProfile()
+
+Requirements:
+	1. Use super() in child constructors.
+	2. Use super.showProfile() inside child showProfile() .
+	3. Create one Student object and one Trainer object.
+	4. Print both profiles.
+ */

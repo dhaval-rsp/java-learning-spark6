@@ -7,7 +7,6 @@ public class P7_InheritancePractice {
     }
 }
 
-
 class Vehicle{
     private  String brand;
     private int speed;
@@ -17,10 +16,9 @@ class Vehicle{
         this.speed = speed;
     }
 
-    String showVehicleDetails() {
+    String showVehicleDetails(){
         return "This is " + brand + " brand car and top speed is: " + speed;
     }
-
 }
 
 class Car extends Vehicle{
@@ -35,3 +33,20 @@ class Car extends Vehicle{
         System.out.println(showVehicleDetails() + " and fuel type is: " + fuelType);
     }
 }
+
+/*
+## `Program 7: Inheritance Practice`
+
+Create a parent class Vehicle with:
+	brand
+	speed
+	constructor
+	showVehicleDetails() method
+
+Create a child class Car with:
+	fuelType
+	constructor
+	showCarDetails() method
+
+Use super() to call parent constructor
+ */

@@ -22,6 +22,7 @@ class BankAccount{
         this.accountNumber = accountNumber;
         this.balance = balance;
     }
+
     // getter to get the private balance
     public double getBalance() {
         return balance;
@@ -52,3 +53,21 @@ class BankAccount{
         }
     }
 }
+
+/*
+## `Program 9: Encapsulation`
+
+Create a BankAccount class with private fields:
+	accountNumber
+	balance
+
+Create methods:
+	deposit(double amount)
+	withdraw(double amount)
+	getBalance()
+
+Rules:
+	Deposit only positive amount.
+	Withdraw only if balance is enough.
+	Direct balance access should not be allowed
+ */

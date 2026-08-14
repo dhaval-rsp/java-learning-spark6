@@ -606,7 +606,7 @@ Example:
 	Output: 67
 ```
 
-[P1](./src/P1)
+[P1_ArrayMaximum.java](./src/P1_ArrayMaximum.java)
 
 ## `Program 2: Count Even And Odd Numbers`
 
@@ -617,7 +617,7 @@ Expected output format:
 	Odd count: 2
 ```
 
-[P2](./src/P2)
+[P2_CountEvenAndOddNumers.java](./src/P2_CountEvenAndOddNumers.java)
 
 ## `Program 3: Student Array`
 
@@ -632,7 +632,7 @@ In main , create an array of 3 Student objects and print details of all students
 
 ```
 
-[P3](./src/P3)
+[P3_StudentArray.java](./src/P3_StudentArray.java)
 
 ## `Program 4: Product Bill`
 
@@ -648,7 +648,7 @@ Create a Product class with:
 Create 3 products and print the total bill amount.
 ```
 
-[P4](./src/P4)
+[P4_ProductBill.java](./src/P4_ProductBill.java)
 
 ## `Program 5: Constructor Overloading`
 
@@ -665,7 +665,7 @@ Create two constructors:
 If salary is not provided, store salary as 15000 .
 ```
 
-[P5](./src/P5)
+[P5_ConstructorOverloading.java](./src/P5_ConstructorOverloading.java)
 
 ## `Program 6: this() Practice`
 
@@ -683,7 +683,7 @@ Call the first constructor from the second constructor using this() .
 
 ```
 
-[P6](./src/P6)
+[P6_thisPractice.java](./src/P6_thisPractice.java)
 
 ## `Program 7: Inheritance Practice`
 
@@ -702,7 +702,7 @@ Create a child class Car with:
 Use super() to call parent constructor
 ```
 
-[P7](./src/P7)
+[P7_InheritancePractice.java](./src/P7_InheritancePractice.java)
 
 ## `Program 8: Method Overriding`
 
@@ -717,7 +717,7 @@ Create two child classes:
 Override calculateInterest() in both child classes.
 ```
 
-[P8](./src/P8)
+[P8_MethodOverriding.java](./src/P8_MethodOverriding.java)
 
 ## `Program 9: Encapsulation`
 
@@ -737,7 +737,7 @@ Rules:
 	Direct balance access should not be allowed
 ```
 
-[P9](./src/P9)
+[P9_Encapsulation.java](./src/P9_Encapsulation.java)
 
 ## `Program 10: Mini OOP System`
 
@@ -769,7 +769,7 @@ Requirements:
 	4. Print both profiles.
 ```
 
-[P10](./src/P10)
+[P10_MiniOOPSystem.java](./src/P10_MiniOOPSystem.java)
 
 # Part E: Concept Mapping
 
