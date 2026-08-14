@@ -754,7 +754,7 @@ Hint:
 	students[2] = new Student();
 ```
 
-[C4.java](./src/C4)
+[C4_ObjectArray.java](./src/C4_ObjectArray.java)
 
 ## `Challenge 5: Array Parameter`
 
@@ -767,7 +767,7 @@ Add:
 Call it by passing an integer array.
 ```
 
-[C5.java](./src/C5)
+[C5_ArrayParameter.java](./src/C5_ArrayParameter.java)
 
 # Part I: Oral Revision
 
