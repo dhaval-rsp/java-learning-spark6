@@ -16,7 +16,6 @@ public class P8_MethodWiththrows {
 
             System.out.println("Program completed");
         }
-
     }
 }
 
@@ -28,3 +27,16 @@ class FileService {
     }
 }
 
+/*
+## `Program 8: Method With throws`
+
+Create class FileService.
+
+Method:
+	void readFile() throws FileNotFoundException
+
+In main method:
+	Create object of FileService .
+	Call readFile() .
+	Handle exception using try-catch.
+ */

@@ -37,4 +37,18 @@ class LoginService {
     }
 }
 
+/*
+## `Program 11: Login Validation`
 
+Create custom unchecked exception:
+	InvalidLoginException
+
+Create class LoginService with:
+	void login(String username, String password)
+
+Rules:
+	Correct username: "admin"
+	Correct password: "java123"
+	If username or password is wrong, throw InvalidLoginException .
+	Handle exception in main method.
+ */

@@ -9,6 +9,7 @@ public class P4_NullNameChecker {
 
 class NullNameChecker {
     public static void printNameLength(String name) {
+
         try {
             System.out.println("Length of name: " + name.length());
         }
@@ -24,4 +25,15 @@ class NullNameChecker {
 
 }
 
+/*
+## `Program 4: Null Name Checker`
 
+Create a method:
+	void printNameLength(String name)
+
+If name is null, handle NullPointerException .
+Then improve the same program without exception by checking:
+	if (name != null)
+
+Write which approach is better and why.
+ */

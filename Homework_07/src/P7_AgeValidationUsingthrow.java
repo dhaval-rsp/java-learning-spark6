@@ -1,4 +1,5 @@
 public class P7_AgeValidationUsingthrow {
+
     public static void main(String[] args) {
         VoterService service = new VoterService();
 
@@ -9,6 +10,7 @@ public class P7_AgeValidationUsingthrow {
 
         catch (IllegalArgumentException e) {
             System.out.println(e.getMessage()); // Handle exception in main
+            System.out.println(" | You are less than 18 years old");
         }
 
         finally {
@@ -30,4 +32,15 @@ class VoterService {
     }
 }
 
+/*
+## `Program 7: Age Validation Using throw`
 
+Create class VoterService .
+Method:
+	void checkAge(int age)
+
+Rules:
+	If age is less than 18, throw IllegalArgumentException .
+	Otherwise print "Allowed to vote" .
+	Handle exception in main method.
+ */

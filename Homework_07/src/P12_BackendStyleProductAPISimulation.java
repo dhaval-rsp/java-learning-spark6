@@ -37,7 +37,10 @@ class ProductNotFoundException extends Exception {
 }
 
 class ProductService {
-    public void getProductById(int productId) throws InvalidProductIdException, ProductNotFoundException {
+
+    public void getProductById (int productId)
+            throws InvalidProductIdException, ProductNotFoundException {
+
         if (productId <= 0) {
             throw new InvalidProductIdException("Error: Product ID must be greater than 0.");
         }
@@ -50,4 +53,25 @@ class ProductService {
     }
 }
 
+/*
+## `Program 12: Backend-Style Product API Simulation`
 
+Create:
+	ProductNotFoundException
+	InvalidProductIdException
+	ProductService
+	Main
+
+In ProductService , create method:
+	void getProductById(int productId)
+
+Rules:
+	If productId is less than or equal to 0, throw InvalidProductIdException .
+	If productId is not 101, throw ProductNotFoundException .
+	If productId is 101, print product details.
+
+In main method:
+	Call service method inside try.
+	Use multiple catch blocks.
+	Print user-friendly messages.
+ */

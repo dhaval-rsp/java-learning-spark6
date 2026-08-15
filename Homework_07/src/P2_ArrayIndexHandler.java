@@ -7,7 +7,9 @@ public class P2_ArrayIndexHandler {
         int[] numbers = {10, 20, 30, 40, 50}; // Array of 5 integers
 
         try (Scanner scanner = new Scanner(System.in)) {
+
             System.out.print("Enter an index [0-4]: ");
+
             int index = scanner.nextInt();
             System.out.println("Value at index " + index + " = " + numbers[index]);
         }
@@ -27,3 +29,14 @@ public class P2_ArrayIndexHandler {
     }
 }
 
+/*
+## `Program 2: Array Index Handler`
+
+Create an integer array of 5 values.
+Try to print an index entered by user.
+
+Requirements:
+	Handle ArrayIndexOutOfBoundsException .
+	Handle InputMismatchException .
+	Close Scanner in finally .
+ */

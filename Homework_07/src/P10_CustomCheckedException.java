@@ -5,7 +5,9 @@ public class P10_CustomCheckedException {
         try {
             account.withdraw(200.0);
             account.withdraw(400.0);
-        } catch (InsufficientBalanceException e) {
+        }
+
+        catch (InsufficientBalanceException e) {
             System.out.println(e.getMessage()); // Handle custom checked exception
         }
 
@@ -14,7 +16,6 @@ public class P10_CustomCheckedException {
         }
     }
 }
-
 
 // Custom checked exception
 class InsufficientBalanceException extends Exception {
@@ -32,6 +33,7 @@ class BankAccount {
 
     // Withdraw method with throws
     public void withdraw(double amount) throws InsufficientBalanceException {
+
         if (amount > balance) {
             throw new InsufficientBalanceException(
                     "Error: Withdrawal amount " + amount + " exceeds available balance " + balance
@@ -43,3 +45,20 @@ class BankAccount {
         }
     }
 }
+
+/*
+## `Program 10: Custom Checked Exception`
+
+Create custom exception:
+	InsufficientBalanceException extends Exception
+
+Create class BankAccount with:
+	balance
+	constructor
+	withdraw(double amount) throws InsufficientBalanceException
+
+Rules:
+	If amount is greater than balance, throw custom exception.
+	Otherwise deduct balance and print remaining balance.
+	Handle exception in main method.
+ */
