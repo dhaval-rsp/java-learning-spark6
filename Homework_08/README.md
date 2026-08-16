@@ -1,137 +1,166 @@
 # Part A: Short Answer Questions
 
-1. **What is a thread?**
-   > a\
-2. **What is multithreading?**
-   > a\
-3. **What is the difference between process and thread?**
-   > a\
-   > a\
-   
+1. **What is a `thread` ?**
+
+   > A thread is a lightweight unit of execution within a process.  
+   > Example: In Java, `Thread t = new Thread();`
+
+2. **What is `multithreading` ?**
+
+   > Multithreading is the ability of a program to run multiple threads concurrently.  
+   > Example: A web server handling multiple client requests at the same time.
+
+3. **What is the `difference` between `process` and `thread` ?**
+
+   > Process → Independent execution unit with its own memory.  
+   > Thread → Subset of a process, shares memory/resources with other threads.
+
 4. **Why do backend applications need multithreading?**
-   > a\
-   > a\
-   
-5. **What is the main thread?**
-   > a\
-   > a\
+
+   > To handle multiple client requests simultaneously, improve throughput, and keep servers responsive.
+
+5. **What is the `main` thread?**
+
+   > The default thread that starts when a Java program runs (`public static void main`).
 
 6. **How can we get the current thread name?**
-   > a\
-   
-7. **What are two basic ways to create a thread in Java?**
-   > a\
-   
-8. **What is the use of run() method?**
-   > a\
-   
-9. **What is the use of start() method?**
-   > a\
-   > a\
-   
-10. **What is the difference between start() and run() ?**
-    > a\
-    > a\
-	
-11. **Can we start the same thread object twice?**
-    > a\
-    > a\
 
-12. **What is the use of sleep() ?**
-    > a\
-    > a\
-	
-13. **Why does sleep() need exception handling?**
-    > a\
-    > a\
-	
-14. **What is the use of join() ?**
-    > a\
-    > a\
-	
-15. **Where can we use join() in a real project?**
-    > a\
-    > a\
-	
+   ```java
+   System.out.println(Thread.currentThread().getName());
+   ```
+
+7. **What are two basic ways to create a thread in Java?**
+
+   > Extend `Thread` class and override `run()`.\
+   > Implement Runnable interface and pass it to a Thread.\
+
+8. **What is the use of run() method?**
+
+   > Contains the code that the thread executes.\
+
+9. **What is the use of start() method?**
+
+   > Starts a new thread and internally calls `run()` asynchronously.\
+
+10. **What is the difference between start() and run() ?**
+
+    > `start()` → Creates a new thread and executes `run()` in parallel.\
+    > `run()` → Just a normal method call, no new thread is created.\
+
+11. **Can we start the same thread object twice?**
+
+    > ❌ No, it throws `IllegalThreadStateException`.
+
+12. **What is the use of sleep()?**
+
+    > Pauses the current thread for a given time.
+
+    ```java
+    Thread.sleep(1000); // sleep for 1 second
+    ```
+
+13. **Why does `sleep()` need exception handling?**
+
+    > It throws `InterruptedException` if another thread interrupts it.
+
+14. **What is the use of `join()` ?**
+
+    > Makes one thread wait until another finishes execution.
+
+15. **Where can we use `join()` in a real project?**
+
+    > Example: Waiting for worker threads to finish before aggregating results in a report.
+
 16. **Does thread priority guarantee execution order?**
-    > a\
-    > a\
-	
-17. **What is a daemon thread?**
-    > a\
-    > a\
-	
-18. **What is a race condition?**
-    > a\
-    > a\
-	
+
+    > ❌ No, it’s only a hint to the scheduler.
+
+17. **What is a `daemon` thread?**
+
+    > A background thread that runs until all user threads finish (e.g., garbage collector).
+
+18. **What is a `race` condition?**
+
+    > When multiple threads access shared data simultaneously and results depend on timing.
+
 19. **Why does race condition happen?**
-    > a\
-    > a\
-	
-20. **What is the use of synchronized ?**
-    > a\
-    > a\
-	
-21. **What is the difference between synchronized method and synchronized block?**
-    > a\
-    > a\
-	
-22. **What is ReentrantLock ?**
-    > a\
-    > a\
-	
-23. **Why do we write unlock() inside finally ?**
-    > a\
-    > a\
-	
-24. **What is the use of tryLock() ?**
-    > a\
-    > a\
-	
-25. **What is the difference between synchronized and Lock ?**
-    > a\
-    > a\
-	
-26. **What is Executor Framework?**
-    > a\
-    > a\
-	
+
+    > Lack of synchronization on shared resources.
+
+20. **What is the use of `synchronized` ?**
+
+    > Ensures only one thread can access a block/method at a time.
+
+21. **What is the difference between `synchronized method` and `synchronized block` ?**
+
+    > Method → Locks the entire method.  
+    > Block → Locks only the specific section of code.
+
+22. **What is `ReentrantLock` ?**
+
+    > A lock with advanced features (fairness, tryLock, interruptible locking).
+
+23. **Why do we write `unlock()` inside finally?**
+
+    > To ensure lock release even if exceptions occur.
+
+24. **What is the use of `tryLock()` ?**
+
+    > Attempts to acquire lock without waiting; returns `true` if successful.
+
+25. **What is the difference between synchronized and Lock?**
+
+    > `synchronized` → Implicit, simpler, JVM-managed.  
+    > `Lock` → Explicit, more flexible, supports features like tryLock, fairness.
+
+26. **What is `Executor` Framework?**
+
+    > High-level API to manage thread pools instead of manual thread creation.
+
 27. **Why is ExecutorService better than creating raw threads again and again?**
-    > a\
-    > a\
-	
-28. **What is FixedThreadPool?**
-    > a\
-    > a\
-	
-29. **What is SingleThreadExecutor?**
-    > a\
-    > a\
-	
+
+    > Reuses threads, reduces overhead, provides better control.
+
+28. **What is `FixedThreadPool` ?**
+
+    > Pool with a fixed number of threads.
+
+    ```java
+    ExecutorService pool = Executors.newFixedThreadPool(5);
+    ```
+
+29. **What is `SingleThreadExecutor` ?**
+
+    > Executes tasks sequentially with one thread.
+
 30. **What is ScheduledExecutorService?**
-    > a\
-    > a\
-	
-31. **What is the difference between execute() and submit() ?**
-    > a\
-    > a\
-	
-32. **What is Callable ?**
-    > a\
-    > a\
-	
-33. **What is Future ?**
-    > a\
-    > a\
-	
-34. **What is the use of future.get() ?**
-    > a\
-    > a\
-	
-35. **What is the difference between invokeAll() and invokeAny() ?**
-    > a\
-    > a\
+
+    > Executes tasks after a delay or periodically.
+
+    ```java
+    ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+    ```
+
+31. **What is the difference between execute() and submit()?**
+
+    > `execute()` → Runs a task, no result returned.  
+    > `submit()` → Runs a task and returns a `Future`.
+
+32. **What is Callable?**
+
+    > Similar to `Runnable` but returns a value and can throw exceptions.
+
+33. **What is `Future` ?**
+
+    > Represents the result of an asynchronous computation.
+
+34. **What is the use of `future.get()` ?**
+
+    > Retrieves the result of a `Callable`; blocks until computation finishes.
+
+35. **What is the difference between invokeAll() and invokeAny()?**
+    > `invokeAll()` → Runs multiple tasks, waits for all to finish, returns list of Futures.  
+    > `invokeAny()` → Runs multiple tasks, returns result of the first successful one, cancels others.
 
 # Part B: Find The Output
 
@@ -145,9 +174,10 @@ public class Main {
 }
 ```
 
-```java
+```
 // Answere
 
+main --> as program running from main thread
 ```
 
 ## `Question 2`
@@ -175,9 +205,11 @@ Write:
 	Which line runs in new thread?
 ```
 
-```java
+```
 // Answere
 
+Running in main --> as t1.run is calling method from main
+Running in Thread-0 --> as t1.start actually creating new thread
 ```
 
 ## `Question 3`
@@ -210,9 +242,18 @@ Write:
 	Is exact output order guaranteed?
 ```
 
-```java
+```
 // Answere
 
+Order is not guaranteed here, because in run method simple 1 to 3 loop is running
+When we create t1.start and t2.start thread JVM call both thread randomly
+
+Thread-A 1
+Thread-A 3
+Thread-A 2
+Thread-B 1
+Thread-B 2
+Thread-B 3
 ```
 
 ## `Question 4`
@@ -238,9 +279,14 @@ Write:
 	What exception will occur and why?
 ```
 
-```java
+```
 // Answere
 
+IllegalThreadStateException exception because with same object t1 we are creating thread 2 times
+
+sometime when first t1 executed then it will give "Thread running" after that again generates exception
+
+In short for second call there will be exception so if second call executes first then direct exception other wise one time thread will run
 ```
 
 ## `Question 5`
@@ -263,9 +309,11 @@ public class Main {
 }
 ```
 
-```java
+```
 // Answere
 
+Downloading file
+Download completed, now processing
 ```
 
 ## `Question 6`
@@ -317,9 +365,14 @@ Write:
 	Can actual output be less than 2000? Why?
 ```
 
-```java
+```
 // Answere
 
+It is race condition,
+Since increment method is without synchronization race will occur which means increment codition called by both thread simultaneosly.
+Due to race condtion both thread will try to increase counter from 0 --> 1 only but originally suppose one thread increased 0 --> 1 then second has to increas from 1 --> 2
+But since both are unaware about each other they will increase in same number so output will not be exact 2000
+It will be less than 2000
 ```
 
 ## `Question 7`
@@ -351,9 +404,15 @@ Write:
 	Is task order guaranteed?
 ```
 
-```java
+```
 // Answere
+we have given 2 worker thread in pool
+Order of task is not guaranteed
 
+Task 2 by pool-1-thread-2
+Task 1 by pool-1-thread-1
+Task 3 by pool-1-thread-2
+Task 4 by pool-1-thread-1
 ```
 
 ## `Question 8`
@@ -379,9 +438,9 @@ public class Main {
 }
 ```
 
-```java
+```
 // Answere
-
+30
 ```
 
 # Part C: Find And Fix The Problem
@@ -408,11 +467,32 @@ Write:
 	1. Is this multithreading?
 	2. What is the mistake?
 	3. Correct the code.
+
+1. Is this multithreading?
+   No.
+   In the given code, `t1.run()` is called directly. That’s just a normal method call on the main thread.
+   No new thread is created, so the program is still.
+
+2. What is the mistake?
+   The mistake is calling `run()` instead of `start()`.
+   - `run()` → Executes like a normal method, no new thread.
+   - `start()` → Creates a new thread and internally calls `run()` on that new thread.
 ```
 
-```
-// Answere
+```java
+// 3. Correct the code.
+class MyThread extends Thread {
+	public void run() {
+		System.out.println("Running");
+	}
+}
 
+public class Main {
+	public static void main(String[] args) {
+		MyThread t1 = new MyThread();
+		t1.start();  // ✅ Correct way to start a new thread
+	}
+}
 ```
 
 ## `Question 2`
@@ -441,7 +521,7 @@ Write:
 	3. Correct the code.
 ```
 
-```
+```java
 // Answere
 
 ```
@@ -467,7 +547,7 @@ Write:
 	3. Correct using synchronized block.
 ```
 
-```
+```java
 // Answere
 
 ```
@@ -496,7 +576,7 @@ Write:
 	3. Correct using try-finally .
 ```
 
-```
+```java
 // Answere
 
 ```
@@ -523,7 +603,7 @@ Write:
 	3. Correct the code.
 ```
 
-```
+```java
 // Answere
 
 ```
@@ -545,7 +625,7 @@ Write:
 	3. Rewrite better approach
 ```
 
-```
+```java
 // Answere
 
 ```
@@ -563,15 +643,19 @@ Write:
 	Is output order fixed?
 ```
 
+[](./src)
+
 ## Program 2: Create Thread Using Runnable
 
 ```
 Create class EmailTask that implements Runnable .
 Inside run() , print:
 	Sending email by <thread-name>
-	
+
 Create 3 threads using same EmailTask style and start them
 ```
+
+[](./src)
 
 ## Program 3: start() vs run()
 
@@ -583,6 +667,8 @@ Create a thread and call:
 Print current thread name inside run() .
 Explain the difference.
 ```
+
+[](./src)
 
 ## Program 4: Download Then Process
 
@@ -597,6 +683,8 @@ After that print:
 	Processing downloaded file
 ```
 
+[](./src)
+
 ## Program 5: Order Processing With join()
 
 ```
@@ -604,7 +692,7 @@ Create three threads:
 	PaymentTask
 	InvoiceTask
 	EmailTask
-	
+
 Rules:
 	1. Payment should complete first.
 	2. Invoice should generate after payment.
@@ -613,13 +701,15 @@ Rules:
 Use join() to control order
 ```
 
+[](./src)
+
 ## Program 6: Race Condition Demo
 
 ```
 Create Counter class with:
 	int count
 	increment() method
-	
+
 Create two threads. Each thread should increment count 10000 times.
 First run without synchronization.
 Then fix using synchronized.
@@ -628,6 +718,8 @@ Write:
 	What was the wrong output?
 	What changed after synchronized?
 ```
+
+[](./src)
 
 ## Program 7: Ticket Booking With synchronized
 
@@ -644,6 +736,8 @@ Both should try to book ticket.
 Use synchronized to avoid overbooking.
 ```
 
+[](./src)
+
 ## Program 8: Ticket Booking With ReentrantLock
 
 ```
@@ -655,6 +749,8 @@ Rules:
 	Use unlock() inside finally .
 	Explain why finally is required.
 ```
+
+[](./src)
 
 ## Program 9: Wallet Debit With tryLock()
 
@@ -671,6 +767,8 @@ Rules:
 	Create two threads trying to debit wallet.
 ```
 
+[](./src)
+
 ## Program 10: FixedThreadPool Email Sender
 
 ```
@@ -685,12 +783,14 @@ Print:
 	Sending email to <email> by <thread-name>
 ```
 
+[](./src)
+
 ## Program 11: SingleThreadExecutor Audit Log
 
 ```
 Use:
 	Executors.newSingleThreadExecutor()
-	
+
 Submit these tasks:
 	Order created
 	Payment completed
@@ -699,6 +799,8 @@ Submit these tasks:
 
 Explain why SingleThreadExecutor is useful here.
 ```
+
+[](./src)
 
 ## Program 12: ScheduledExecutorService
 
@@ -710,6 +812,8 @@ after 3 seconds.
 Then create another program to print same message every 5 seconds.
 ```
 
+[](./src)
+
 ## Program 13: Callable And Future
 
 ```
@@ -718,14 +822,18 @@ It should return total marks of 5 subjects.
 Submit using ExecutorService and print total using Future .
 ```
 
+[](./src)
+
 ## Program 14: Payment Status With Callable
 
 ```Create PaymentStatusTask implements Callable<String> .
 It should take orderId and return:
 	Payment SUCCESS for order <orderId>
-	
+
 Use Future to get result.
 ```
+
+[](./src)
 
 ## Program 15: Dashboard Loading
 
@@ -734,13 +842,15 @@ Create three Callable tasks:
 	loadProfile
 	loadOrders
 	loadWallet
-	
+
 Each task should sleep for different time and return a message.
 Run all using FixedThreadPool of 3.
 
 Print all results and then:
 	Dashboard ready
 ```
+
+[](./src)
 
 ## Program 16: invokeAll()
 
@@ -752,6 +862,8 @@ Use invokeAll() for three Callable tasks:
 Print all results.
 ```
 
+[](./src)
+
 ## Program 17: invokeAny()
 
 ```
@@ -762,7 +874,8 @@ Create three Callable tasks:
 Each returns price message.
 Use invokeAny() and print first successful result.
 ```
-[P1_PersonalDetails.java](./src/P1_PersonalDetails.java)
+
+[](./src)
 
 # Part E: Concept Mapping
 
