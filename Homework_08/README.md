@@ -519,11 +519,42 @@ Write:
 	1. What exception occurs?
 	2. Why does it happen?
 	3. Correct the code.
+
+	/*
+	1. What exception occurs?
+		- java.lang.IllegalThreadStateException
+
+	2. Why does it happen?
+		- A thread can only be started once.
+		- After calling start(), the thread enters the "RUNNABLE" state and eventually "TERMINATED".
+		- Calling start() again on the same thread object is illegal because a terminated thread cannot be restarted.
+
+	3. Correct the code.
+		- Create a new thread object if you want to start another thread.
+		- Do not call start() twice on the same thread instance.
+	*/
 ```
 
 ```java
 // Answere
+class MyThread extends Thread {
+    public void run() {
+        System.out.println("Running");
+    }
+}
 
+public class Main {
+    public static void main(String[] args) {
+        MyThread t1 = new MyThread();
+        t1.start();   // ✅ valid
+
+        // ❌ t1.start(); // would throw IllegalThreadStateException
+
+        // ✅ Correct way: create a new thread object
+        MyThread t2 = new MyThread();
+        t2.start();
+    }
+}
 ```
 
 ## `Question 3`
@@ -545,11 +576,44 @@ Write:
 	1. What problem can happen?
 	2. Correct using synchronized method.
 	3. Correct using synchronized block.
+
+	/*
+	1. What problem can happen?
+		- Two threads using the same Counter object may update 'count' simultaneously.
+		- This causes a race condition: increments can overlap, leading to lost updates.
+		- Example: If count = 5, two threads increment at the same time, final result may still be 6 instead of 7.
+
+	2. Correct using synchronized method.
+		- Mark the increment() method as synchronized.
+		- This ensures only one thread can execute increment() at a time.
+	*/
 ```
 
 ```java
 // Answere
+class Counter {
+    int count = 0;
 
+    synchronized void increment() {
+        count++;
+    }
+}
+
+/*
+3. Correct using synchronized block.
+   - Use a synchronized block to lock only the critical section.
+   - This gives more granular control and can improve performance.
+*/
+
+class Counter {
+    int count = 0;
+
+    void increment() {
+        synchronized (this) {
+            count++;
+        }
+    }
+}
 ```
 
 ## `Question 4`
@@ -574,11 +638,41 @@ Write:
 	1. What is wrong?
 	2. Why can this block other threads?
 	3. Correct using try-finally .
+
+	/*
+	1. What is wrong?
+		- The code acquires the lock using lock.lock() but never releases it.
+		- Without unlock(), the lock remains held forever.
+
+	2. Why can this block other threads?
+		- Locks are exclusive: only one thread can hold it at a time.
+		- If unlock() is not called, other threads trying to acquire the lock will wait indefinitely.
+		- This causes a deadlock-like situation where no other thread can proceed.
+
+	3. Correct using try-finally.
+		- Always release the lock in a finally block.
+		- This ensures the lock is freed even if an exception occurs inside the critical section.
+	*/
 ```
 
 ```java
 // Answere
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
+class Counter {
+    int count = 0;
+    Lock lock = new ReentrantLock();
+
+    void increment() {
+        lock.lock();  // acquire lock
+        try {
+            count++;
+        } finally {
+            lock.unlock();  // always release lock
+        }
+    }
+}
 ```
 
 ## `Question 5`
@@ -601,11 +695,44 @@ Write:
 	1. What is missing?
 	2. Why can program keep running?
 	3. Correct the code.
+
+	/*
+	1. What is missing?
+		- The code does not call executor.shutdown().
+		- Without shutdown, the thread pool remains alive, waiting for new tasks.
+
+	2. Why can program keep running?
+		- Threads created by Executors.newFixedThreadPool() are non‑daemon threads.
+		- Non‑daemon threads keep the JVM alive until they are terminated.
+		- Since shutdown() is not called, the JVM does not exit even after the task completes.
+
+	3. Correct the code.
+		- Always call shutdown() (or shutdownNow()) after submitting tasks.
+		- Optionally, use awaitTermination() to wait for tasks to finish.
+	*/
 ```
 
 ```java
 // Answere
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
+public class Main {
+    public static void main(String[] args) throws InterruptedException {
+        ExecutorService executor = Executors.newFixedThreadPool(2);
+
+        executor.submit(() -> System.out.println("Task completed"));
+
+        // ✅ Properly shut down the executor
+        executor.shutdown();
+
+        // ✅ Optionally wait for tasks to finish
+        if (!executor.awaitTermination(5, TimeUnit.SECONDS)) {
+            executor.shutdownNow();
+        }
+    }
+}
 ```
 
 ## `Question 6`
@@ -623,11 +750,52 @@ Write:
 	1. What is the design problem?
 	2. Why does it reduce parallel benefit?
 	3. Rewrite better approach
+
+
+	1. What is the design problem?
+		- The code calls f1.get() immediately after submitting task1.
+		- This blocks the main thread until task1 finishes before task2 is even submitted.
+		- As a result, tasks run sequentially instead of concurrently.
+
+	2. Why does it reduce parallel benefit?
+		- Because task2 is submitted only after task1 completes.
+		- Even though an ExecutorService is used, the blocking get() prevents parallel execution.
+		- The benefit of multiple threads is lost.
+
+	3. Rewrite better approach
+		- Submit all tasks first, then collect results later.
+		- This allows tasks to run in parallel.
+	*/
 ```
 
 ```java
 // Answere
+import java.util.concurrent.*;
 
+public class Main {
+    public static void main(String[] args) throws Exception {
+        ExecutorService executor = Executors.newFixedThreadPool(2);
+
+        Callable<String> task1 = () -> {
+            Thread.sleep(1000);
+            return "Task1 done";
+        };
+        Callable<String> task2 = () -> {
+            Thread.sleep(1000);
+            return "Task2 done";
+        };
+
+        // ✅ Submit both tasks first
+        Future<String> f1 = executor.submit(task1);
+        Future<String> f2 = executor.submit(task2);
+
+        // ✅ Collect results later (parallel execution)
+        System.out.println(f1.get());
+        System.out.println(f2.get());
+
+        executor.shutdown();
+    }
+}
 ```
 
 # Part D: Coding Practice
@@ -879,105 +1047,207 @@ Use invokeAny() and print first successful result.
 
 # Part E: Concept Mapping
 
-```
-Complete the table:
-```
-
-| \*  | Situation                           | Concept Used |
-| --- | ----------------------------------- | ------------ |
-| 1   | New path of execution               |              |
-| 2   | Method that contains thread task    |              |
-| 3   | Method that creates new thread      |              |
-| 4   | Pause current thread                |              |
-| 5   | Wait for another thread to finish   |              |
-| 6   | Output order can change             |              |
-| 7   | Multiple threads changing same data |              |
-| 8   | Protect shared data simply          |              |
-| 9   | Lock only small critical section    |              |
-| 10  | Manual advanced locking             |              |
-| 11  | Try lock without waiting forever    |              |
-| 12  | Pool of reusable worker threads     |              |
-| 13  | One worker, ordered execution       |              |
-| 14  | Fixed number of worker threads      |              |
-| 15  | Run task after delay                |              |
-| 16  | Task that returns value             |              |
-| 17  | Future result of task               |              |
-| 18  | Run many tasks and get all result   |              |
-| 19  | Get one successful result           |              |
+| \*  | Situation                           | Concept Used               |
+| --- | ----------------------------------- | -------------------------- |
+| 1   | New path of execution               | `start()` method           |
+| 2   | Method that contains thread task    | `run()` method             |
+| 3   | Method that creates new thread      | `Thread` + `start()`       |
+| 4   | Pause current thread                | `sleep()`                  |
+| 5   | Wait for another thread to finish   | `join()`                   |
+| 6   | Output order can change             | Thread scheduling          |
+| 7   | Multiple threads changing same data | Race condition             |
+| 8   | Protect shared data simply          | `synchronized` keyword     |
+| 9   | Lock only small critical section    | Synchronized block         |
+| 10  | Manual advanced locking             | `ReentrantLock`            |
+| 11  | Try lock without waiting forever    | `tryLock()`                |
+| 12  | Pool of reusable worker threads     | Executor Framework         |
+| 13  | One worker, ordered execution       | `SingleThreadExecutor`     |
+| 14  | Fixed number of worker threads      | `FixedThreadPool`          |
+| 15  | Run task after delay                | `ScheduledExecutorService` |
+| 16  | Task that returns value             | `Callable`                 |
+| 17  | Future result of task               | `Future`                   |
+| 18  | Run many tasks and get all result   | `invokeAll()`              |
+| 19  | Get one successful result           | `invokeAny()`              |
 
 # Part F: Difference Questions
 
-| \*  | Process | Thread |
-| --- | ------- | ------ |
-| 1   | hi      | hi     |
-| 2   | hello   | hello  |
+| \*  | `Process`                                             | `Thread`                                                    |
+| --- | ----------------------------------------------------- | ----------------------------------------------------------- |
+| 1   | Independent execution unit with its own memory space. | Lightweight unit inside a process, shares memory/resources. |
+| 2   | More resource‑intensive, slower to create.            | Less resource‑intensive, faster to create.                  |
+| 3   | Communication between processes is complex (IPC).     | Communication between threads is easy (shared memory).      |
+| 4   | Crash of one process does not affect others.          | Crash of one thread can affect the whole process.           |
 
-| \*  | Thread | Runnable |
-| --- | ------ | -------- |
-| 1   | hi     | hi       |
-| 2   | hello  | hello    |
+---
 
-| \*  | start() | run() |
-| --- | ------- | ----- |
-| 1   | hi      | hi    |
-| 2   | hello   | hello |
+| \*  | `Thread`                                                 | `Runnable`                                                |
+| --- | -------------------------------------------------------- | --------------------------------------------------------- |
+| 1   | A class you extend to create a thread.                   | An interface you implement, then pass to a Thread object. |
+| 2   | Cannot extend another class if already extending Thread. | Allows multiple inheritance (via interfaces).             |
+| 3   | Less flexible, tightly coupled.                          | More flexible, promotes loose coupling.                   |
+| 4   | Directly represents a thread of execution.               | Represents a task to be executed by a thread.             |
 
-| \*  | sleep() | join() |
-| --- | ------- | ------ |
-| 1   | hi      | hi     |
-| 2   | hello   | hello  |
+---
 
-| \*  | User thread | Daemon thread |
-| --- | ----------- | ------------- |
-| 1   | hi          | hi            |
-| 2   | hello       | hello         |
+| \*  | `start()`                                              | `run()`                                       |
+| --- | ------------------------------------------------------ | --------------------------------------------- |
+| 1   | Creates a new thread and calls `run()` asynchronously. | Normal method call, no new thread created.    |
+| 2   | Executes in parallel with other threads.               | Executes sequentially in the same thread.     |
+| 3   | Can be called only once per thread object.             | Can be called multiple times like any method. |
+| 4   | Throws `IllegalThreadStateException` if called twice.  | No exception, just executes normally.         |
 
-| \*  | Synchronized method | Synchronized block |
-| --- | ------------------- | ------------------ |
-| 1   | hi                  | hi                 |
-| 2   | hello               | hello              |
+---
 
-| \*  | synchronized | ReentrantLock |
-| --- | ------------ | ------------- |
-| 1   | hi           | hi            |
-| 2   | hello        | hello         |
+| \*  | `sleep()`                               | `join()`                                         |
+| --- | --------------------------------------- | ------------------------------------------------ |
+| 1   | Pauses current thread for a given time. | Makes one thread wait until another finishes.    |
+| 2   | Used for delays.                        | Used for synchronization between threads.        |
+| 3   | Does not release locks.                 | Releases CPU for other threads while waiting.    |
+| 4   | Static method of Thread class.          | Instance method called on another thread object. |
 
-| \*  | lock() | tryLock() |
-| --- | ------ | --------- |
-| 1   | hi     | hi        |
-| 2   | hello  | hello     |
+---
 
-| \*  | execute() | submit() |
-| --- | --------- | -------- |
-| 1   | hi        | hi       |
-| 2   | hello     | hello    |
+| \*  | `User thread`                                  | `Daemon thread`                                       |
+| --- | ---------------------------------------------- | ----------------------------------------------------- |
+| 1   | Keeps JVM alive until finished.                | JVM exits when only daemon threads remain.            |
+| 2   | Used for main tasks (e.g., application logic). | Used for background tasks (e.g., garbage collection). |
+| 3   | Default type of thread.                        | Must be explicitly set as daemon.                     |
+| 4   | Important for application completion.          | Supports user threads, not critical for completion.   |
 
-| \*  | Runnable | Callable |
-| --- | -------- | -------- |
-| 1   | hi       | hi       |
-| 2   | hello    | hello    |
+---
 
-| \*  | FixedThreadPool | SingleThreadExecutor |
-| --- | --------------- | -------------------- |
-| 1   | hi              | hi                   |
-| 2   | hello           | hello                |
+| \*  | `Synchronized method`                  | `Synchronized block`                       |
+| --- | -------------------------------------- | ------------------------------------------ |
+| 1   | Locks entire method.                   | Locks only chosen section of code.         |
+| 2   | Less granular, may reduce performance. | More granular, better performance control. |
+| 3   | Easier to implement.                   | More flexible, can lock specific objects.  |
+| 4   | May block unnecessary code.            | Restricts lock to critical section only.   |
 
-| \*  | FixedThreadPool | CachedThreadPool |
-| --- | --------------- | ---------------- |
-| 1   | hi              | hi               |
-| 2   | hello           | hello            |
+---
 
-| \*  | shutdown() | shutdownNow() |
-| --- | ---------- | ------------- |
-| 1   | hi         | hi            |
-| 2   | hello      | hello         |
+| \*  | `synchronized`                          | `ReentrantLock`                                    |
+| --- | --------------------------------------- | -------------------------------------------------- |
+| 1   | Implicit, simpler, JVM‑managed.         | Explicit, flexible, developer‑controlled.          |
+| 2   | No advanced features.                   | Provides tryLock, fairness, interruptible locking. |
+| 3   | Automatically released when block ends. | Must be manually unlocked.                         |
+| 4   | Cannot check lock status.               | Can check if lock is held.                         |
 
-| \*  | invokeAll() | invokeAny() |
-| --- | ----------- | ----------- |
-| 1   | hi          | hi          |
-| 2   | hello       | hello       |
+---
 
-[P6_MiniProject.java](./src/P6_MiniProject.java)
+| \*  | `lock()`                             | `tryLock()`                                   |
+| --- | ------------------------------------ | --------------------------------------------- |
+| 1   | Waits until lock is acquired.        | Attempts to acquire lock immediately.         |
+| 2   | May block indefinitely.              | Returns `false` if lock unavailable.          |
+| 3   | Suitable when waiting is acceptable. | Suitable when you want non‑blocking behavior. |
+| 4   | No timeout option.                   | Can use timeout version of tryLock.           |
+
+---
+
+| \*  | `execute()`                         | `submit()`                                    |
+| --- | ----------------------------------- | --------------------------------------------- |
+| 1   | Runs task, no result returned.      | Runs task, returns a `Future`.                |
+| 2   | Suitable for fire‑and‑forget tasks. | Suitable when you need results or exceptions. |
+| 3   | Accepts only Runnable.              | Accepts Runnable and Callable.                |
+| 4   | No way to track completion.         | Can track completion via Future.              |
+
+---
+
+| \*  | `Runnable`                           | `Callable`                          |
+| --- | ------------------------------------ | ----------------------------------- |
+| 1   | No return value.                     | Returns a value.                    |
+| 2   | Cannot throw checked exceptions.     | Can throw checked exceptions.       |
+| 3   | Used with `execute()` or `submit()`. | Used only with `submit()`.          |
+| 4   | Functional interface with `run()`.   | Functional interface with `call()`. |
+
+---
+
+| \*  | `FixedThreadPool`                  | `SingleThreadExecutor`                   |
+| --- | ---------------------------------- | ---------------------------------------- |
+| 1   | Pool with fixed number of threads. | Only one thread.                         |
+| 2   | Tasks run in parallel.             | Tasks run sequentially in order.         |
+| 3   | Good for parallel workloads.       | Good for ordered, single‑threaded tasks. |
+| 4   | Multiple threads share workload.   | Ensures strict task ordering.            |
+
+---
+
+| \*  | `FixedThreadPool`                    | `CachedThreadPool`                               |
+| --- | ------------------------------------ | ------------------------------------------------ |
+| 1   | Fixed number of threads.             | Creates new threads as needed.                   |
+| 2   | Stable workload handling.            | Good for many short tasks.                       |
+| 3   | Prevents unlimited thread growth.    | Can grow dynamically, may cause resource issues. |
+| 4   | Threads remain alive until shutdown. | Idle threads terminated after 60 seconds.        |
+
+---
+
+| \*  | `shutdown()`                                            | `shutdownNow()`                         |
+| --- | ------------------------------------------------------- | --------------------------------------- |
+| 1   | Graceful shutdown, waits for submitted tasks to finish. | Attempts to stop all tasks immediately. |
+| 2   | No interruption of running tasks.                       | Interrupts running tasks.               |
+| 3   | Returns nothing.                                        | Returns list of pending tasks.          |
+| 4   | Safer for production use.                               | Risky, may leave tasks incomplete.      |
+
+---
+
+| \*  | `invokeAll()`                                 | `invokeAny()`                                                |
+| --- | --------------------------------------------- | ------------------------------------------------------------ |
+| 1   | Runs multiple tasks, waits for all to finish. | Runs multiple tasks, returns result of first successful one. |
+| 2   | Returns list of Futures.                      | Returns single result.                                       |
+| 3   | Useful when all results are needed.           | Useful when only one fastest result is needed.               |
+| 4   | May take longer (waits for all).              | Faster (stops after first success).                          |
+
+# Part G: Real-World Thinking Questions
+
+1. **In a course enrollment system, why can race condition happen?**
+
+   > When multiple students try to enroll in the same course at the same time, threads may update the seat count simultaneously.  
+   > Example: Two students click "Enroll" at the same moment. Without synchronization, both may succeed, leading to overbooking.  
+   > Simply, if one seat available and 2 students books then both will get registered if synchronization is not there.
+
+2. **In ticket booking, why should only one thread book the last seat?**
+
+   > If two threads book the last seat `concurrently`, both may think it’s available.  
+   > Example: Two users attempt to book the final movie ticket. Synchronization ensures only one succeeds, preventing duplicate bookings.
+
+3. **In wallet debit, why is locking important?**
+
+   > Locking ensures atomic updates to the balance. Without it, two debit operations could withdraw more than the wallet balance.  
+   > Example: Balance = ₹1000. Two threads debit ₹800 each. Without locking, both succeed, leaving balance = -₹600.
+
+4. **In bulk email sending, why is ExecutorService better than raw threads?**
+
+   > ExecutorService reuses a pool of threads, reducing overhead. Raw threads for each email would be costly and inefficient.  
+   > Example: Sending 10,000 promotional emails — ExecutorService manages with a fixed pool instead of creating 10,000 threads.
+
+5. **In audit logging, why can SingleThreadExecutor be useful?**
+
+   > Logs must be written in order. A single thread ensures sequential, consistent logging without race conditions.  
+   > Example: Multiple transactions log entries. SingleThreadExecutor guarantees logs appear in the correct chronological order.
+
+6. **In dashboard loading, why can multiple Callable tasks improve waiting time?**
+
+   > Different widgets (charts, stats, notifications) can load in parallel. Callable tasks return results asynchronously, reducing total wait time.  
+   > Example: Instead of loading charts one by one, all widgets are fetched simultaneously, making the dashboard appear faster.
+
+7. **In payment status checking, where can ScheduledExecutorService be used?**
+
+   > To periodically check payment status until confirmation arrives. Scheduled tasks automate repeated checks.  
+   > Example: Every 10 seconds, a task queries the payment gateway until "Success" is returned.
+
+8. **In external price provider system, where can invokeAny() be useful?**
+
+   > When querying multiple providers for a stock/commodity price, you only need the fastest valid response.  
+   > Example: Three APIs provide gold prices. `invokeAny()` returns the first successful result and cancels the rest.
+
+9. **Why should `Future.get()` not be called too early after each submit?**
+
+   > Because `get()` blocks until completion. Calling it immediately serializes tasks, reducing parallelism.  
+   > Example: Submitting 5 tasks and calling `get()` right after each submit makes them run one by one instead of concurrently.
+
+10. **Why should `unlock()` always be inside finally?**
+
+    > If an exception occurs inside the critical section, the lock must still be released.  
+    > Putting `unlock()` in `finally` guarantees release, preventing deadlocks.  
+    > Example: In ticket booking, if an exception occurs while deducting payment, `unlock()` in `finally` ensures other threads can still book.
 
 # Part H: Mini Project
 
