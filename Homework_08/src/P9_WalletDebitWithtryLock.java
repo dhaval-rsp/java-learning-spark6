@@ -67,7 +67,20 @@ class WalletThread extends Thread {
     }
 }
 
+/*
+## Program 9: Wallet Debit With tryLock()
 
+Create class Wallet :
+	balance = 5000
+	method debit(String userName, double amount)
+
+Use tryLock()
+
+Rules:
+	If lock is available, debit amount if balance is enough.
+	If lock is not available, print "Please try again" .
+	Create two threads trying to debit wallet.
+ */
 
 /*
 2.

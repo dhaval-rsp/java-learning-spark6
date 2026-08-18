@@ -3,8 +3,13 @@ public class P5_OrderProcessingWithjoin {
 
         // creating 3 thread object
         PaymentTask payment = new PaymentTask();
+        payment.setName("Payment-Thread");
+
         InvoiceTask invoice = new InvoiceTask();
+        invoice.setName("Invoice-Thread");
+
         EmailTask2 email = new EmailTask2();
+        email.setName("Email-Thread");
 
         try {
             // 1: Payment first
@@ -22,7 +27,7 @@ public class P5_OrderProcessingWithjoin {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("All child Thread done I am main thread");
+        System.out.println("All child Thread done I am " + Thread.currentThread().getName() + " thread");
     }
 }
 
@@ -44,11 +49,26 @@ class EmailTask2 extends Thread {
     }
 }
 
+/*
+## Program 5: Order Processing With join()
 
+Create three threads:
+	PaymentTask
+	InvoiceTask
+	EmailTask
+
+Rules:
+	1. Payment should complete first.
+	2. Invoice should generate after payment.
+	3. Email should send after invoice.
+
+Use join() to control order
+ */
 
 /*
 2. Payment done, Invoice generated, email sent, I am main thread
 3. Order cannot be changed as join is used after every thread executed which make sure one thread finishes first before starting second
-4. Payment thread printing payment done, Invoice thread printing invoice generated, email thread printing email sent, main thread printing I am main
+4. Payment thread prints "payment completed", Invoice thread prints "invoice generated", email thread prints "email sent", main thread prints "I am main"
 7. In real life we can use this method to control flow of certain thread but in limit other wise it wont be any use of multithreading
 */
+

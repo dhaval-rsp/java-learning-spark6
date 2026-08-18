@@ -15,36 +15,48 @@ public class P8_TicketBookingWithReentrantLock {
 
 class TicketBooking {
     int availableSeats = 1;
+
+    // created ReentrantLock object which will be used just before critical section
     Lock lock = new ReentrantLock();
 
     void bookTicket(String username) {
-        boolean locked = lock.tryLock(); // therad tries to hold lock here if no thread holding it then it will own the lock and moves to critical section of if where booking logic written
+
+        // thread tries to hold lock here if no thread holding it then it will own the lock and moves to critical section of "if" where booking logic written
+        boolean locked = lock.tryLock();
 
         if (locked) {
+
             try {
                 if (availableSeats > 0) {
                     System.out.println(username + " is booking ticket");
                     Thread.sleep(5000);
                     availableSeats--;
                     System.out.println(username + " booking successful");
-                } else {
+                }
+                else {
                     System.out.println(username + " no seat available");
                 }
-            } catch (InterruptedException e) {
+            }
+
+            catch (InterruptedException e) {
                 throw new RuntimeException(e);
-            } finally {
-                lock.unlock();
+            }
+
+            finally {
+                lock.unlock(); // always release lock so that other thread can use the section
             }
         }
         else {
-            System.out.println(username + " could not get lock, try agian");
+            System.out.println(username + " could not get lock / " + username + " is in booking que, try agian");
         }
     }
 }
 
 class TicketThread extends Thread{
+
     TicketBooking t;
     String name;
+
     TicketThread(TicketBooking ti, String name){
         this.t = ti;
         this.name = name;
@@ -56,9 +68,20 @@ class TicketThread extends Thread{
     }
 }
 
+/*
+## Program 8: Ticket Booking With ReentrantLock
+
+Create the same ticket booking example using:
+	ReentrantLock
+
+Rules:
+	Use lock() .
+	Use unlock() inside finally .
+	Explain why finally is required.
+ */
 
 /*
-2. jay is booking ticket > jatin could not get lock, try agian > jay booking successful
+2. jay & jatin books ticket together >> suppose jay got lock he moves forward >> jatin got message of que >> jay books successfully & unlock the lock >> now jatin move forwards
 3. output is guaranteed as lock used
 4. t1 booking ticket for jay t2 booking ticket for jatin
 5. lock is protecting ticket booking logic which make sures at a time only one person can book ticket which make sures number of tickets booked = number of people booked

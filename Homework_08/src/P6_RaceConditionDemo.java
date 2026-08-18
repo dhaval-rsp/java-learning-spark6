@@ -1,5 +1,6 @@
 public class P6_RaceConditionDemo {
     public static void main(String[] args) {
+
         Counter c = new Counter();
         CounterTest t1 = new CounterTest(c);
         CounterTest t2 = new CounterTest(c);
@@ -48,17 +49,33 @@ class CounterTest extends Thread{
 
     @Override
     public void run() {
-        for (int i = 1; i <= 1000; i++){
+        for (int i = 1; i <= 10000; i++){
             cn.increment();
         }
     }
 }
 
+/*
+## Program 6: Race Condition Demo
+
+Create Counter class with:
+	int count
+	increment() method
+
+Create two threads. Each thread should increment count 10000 times.
+First run without synchronization.
+Then fix using synchronized.
+
+Write:
+	What was the wrong output?
+	What changed after synchronized?
+ */
 
 /*
-2. expected output will be less than 2000
+2. expected output will be less than 2000 without synchronized block
 3. No output oreder as single lines
 4. both thread doing work and increasing counter simultaneously
 
 After synchronizing the block, the count++ block got synchronized which means at a time only one thread can look its value which ultemately make sure counting done properly, earlier both thread was checking same value like 5 at counter and then increasing it to 6 which is incorrect - one thread has to increase it to 6 and second one need to increase it to 7 that was needed.
 */
+
