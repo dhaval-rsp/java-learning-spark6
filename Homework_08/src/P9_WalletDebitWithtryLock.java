@@ -4,7 +4,7 @@ public class P9_WalletDebitWithtryLock {
     public static void main(String[] args) {
         Wallet wallet = new Wallet();
 
-        WalletThread t1 = new WalletThread(wallet, "Rahul", 3000);
+        WalletThread t1 = new WalletThread(wallet, "Rahul", -3000);
         WalletThread t2 = new WalletThread(wallet, "Priya", 3000);
 
         t1.start();
@@ -15,30 +15,34 @@ public class P9_WalletDebitWithtryLock {
 class Wallet {
 
     double balance = 5000;
-    Lock lock = new ReentrantLock();
+    Lock lock = new ReentrantLock(); // ReentrantLock object for critical section
 
+    void debitAmount(String userName, double amount) {
 
-    void debit(String userName, double amount) {
-        boolean locked = lock.tryLock(); // attempt to acquire lock without waiting forever
+        if (amount < 0) {
+            System.out.println(userName + " Cannot Debit Negative Amount");
+            return; // exit early, no lock needed
+        }
+
+        if (amount > balance) {
+            System.out.println(userName + " insufficient balance");
+            return; // exit early, no lock needed
+        }
+
+        // Only lock if the requested amount is valid
+        boolean locked = lock.tryLock();
         if (locked) {
             try {
-                if (amount <= balance) {
-
-                    System.out.println(userName + " is debiting " + amount);
-
-                    try {
-                        Thread.sleep(2000); // debiting in process
-                    }
-                    catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-
-                    balance -= amount; // adjusting balance as per amount debited
-                    System.out.println(userName + " debit successful. Remaining balance: " + balance);
+                System.out.println(userName + " is debiting " + amount);
+                try {
+                    Thread.sleep(2000); // debiting in process
                 }
-                else {
-                    System.out.println(userName + " insufficient balance");
+                catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
+
+                balance -= amount; // adjusting balance as per amount debited
+                System.out.println(userName + " debit successful. Remaining balance: " + balance);
             }
             finally {
                 lock.unlock();  // always release lock
@@ -63,7 +67,7 @@ class WalletThread extends Thread {
 
     @Override
     public void run() {
-        wallet.debit(userName, amount);
+        wallet.debitAmount(userName, amount);
     }
 }
 
@@ -83,8 +87,7 @@ Rules:
  */
 
 /*
-2.
-Priya Please try again - currently payment is in process
+2.Priya Please try again - currently payment is in process
 Rahul is debiting 3000.0
 Rahul debit successful. Remaining balance: 2000.0
 

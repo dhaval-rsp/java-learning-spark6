@@ -3,6 +3,7 @@ import java.util.concurrent.*;
 public class P11_SingleThreadExecutorAuditLog {
 
     public static void main(String[] args) {
+
         // SingleThreadExecutor ensures tasks run sequentially in order
         ExecutorService executor = Executors.newSingleThreadExecutor();
 
@@ -28,4 +29,17 @@ class AuditTask implements Runnable {
     }
 }
 
+/*
+## Program 11: SingleThreadExecutor Audit Log
 
+Use:
+	Executors.newSingleThreadExecutor()
+
+Submit these tasks:
+	Order created
+	Payment completed
+	Invoice generated
+	Email sent
+
+Explain why SingleThreadExecutor is useful here.
+ */

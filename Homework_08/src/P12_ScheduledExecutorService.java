@@ -7,12 +7,13 @@ public class P12_ScheduledExecutorService {
         PaymentCheckOnce p = new PaymentCheckOnce();
         PaymentCheckRepeat r = new PaymentCheckRepeat();
 
-        scheduler.schedule(p.task,3, TimeUnit.SECONDS);
-        scheduler.scheduleAtFixedRate(r.task, 0, 5, TimeUnit.SECONDS);
+        scheduler.schedule(p.task,0, TimeUnit.SECONDS); // run instantly
+        scheduler.scheduleAtFixedRate(r.task, 3, 5, TimeUnit.SECONDS);
 
         try {
             Thread.sleep(20000); // run for 20 seconds
-        } catch (InterruptedException e) {
+        }
+        catch (InterruptedException e) {
             e.printStackTrace();
         }
 
@@ -29,4 +30,13 @@ class PaymentCheckRepeat{
     Runnable task = () -> System.out.println("Checking payment status on repeat");
 }
 
+/*
+## Program 12: ScheduledExecutorService
+
+Use ScheduledExecutorService to print:
+	Checking payment status
+
+after 3 seconds.
+Then create another program to print same message every 5 seconds.
+ */
 

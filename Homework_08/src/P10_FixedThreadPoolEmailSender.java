@@ -21,13 +21,12 @@ public class P10_FixedThreadPoolEmailSender {
         for (String email : emails) {
             executor.submit(new EmailTaskNew(email));
         }
-
         executor.shutdown();
-
     }
 }
 
 class EmailTaskNew implements Runnable {
+
     private String email;
 
     EmailTaskNew(String email) {
@@ -40,7 +39,19 @@ class EmailTaskNew implements Runnable {
     }
 }
 
+/*
+## Program 10: FixedThreadPool Email Sender
 
+Create array of 10 email ids.
+
+Use:
+	Executors.newFixedThreadPool(3)
+
+Submit email sending tasks.
+
+Print:
+	Sending email to <email> by <thread-name>
+ */
 /*
 2. expected output will be printing Sending email to gautam@gmail.com by pool-1-thread-3 and so on for all 10 emails by diff thread
 3. output order is not guaranteed as any email can be sent as per thread availability

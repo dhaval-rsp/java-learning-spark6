@@ -22,9 +22,13 @@ public class P15_DashboardLoading {
 
             // After all tasks complete
             System.out.println("Dashboard ready");
-        } catch (Exception e) {
+        }
+
+        catch (Exception e) {
             e.printStackTrace();
-        } finally {
+        }
+
+        finally {
             executor.shutdown();
         }
     }
@@ -51,7 +55,20 @@ class WalletTask implements Callable<String> {
     }
 }
 
+/*
+## Program 15: Dashboard Loading
 
+Create three Callable tasks:
+	loadProfile
+	loadOrders
+	loadWallet
+
+Each task should sleep for different time and return a message.
+Run all using FixedThreadPool of 3.
+
+Print all results and then:
+	Dashboard ready
+ */
 
 
 

@@ -3,6 +3,7 @@ import java.util.*;
 
 public class P16_invokeAll {
     public static void main(String[] args) {
+
         ExecutorService executor = Executors.newFixedThreadPool(3);
 
         List<Callable<String>> tasks = Arrays.asList(
@@ -19,9 +20,11 @@ public class P16_invokeAll {
             for (Future<String> f : results) {
                 System.out.println(f.get());
             }
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             e.printStackTrace();
-        } finally {
+        }
+        finally {
             executor.shutdown();
         }
     }
@@ -48,4 +51,12 @@ class PaymentTaskNew implements Callable<String> {
     }
 }
 
+/*
+## Program 16: invokeAll()
 
+Use invokeAll() for three Callable tasks:
+	total students
+	total courses
+	total payments
+Print all results.
+ */
