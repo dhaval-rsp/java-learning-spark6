@@ -609,208 +609,359 @@ public class Main {
 
 # Part D: Find And Fix The Problem
 
-## Program 16: invokeAll()
+## Question 1
 
+```java
+ArrayList<int> numbers = new ArrayList<>();
 ```
 
 ```
-
-```
-
+Write:
+	1. What is the error?
+	2. Why primitive type is not allowed in generics?
+	3. Correct the code.
 ```
 
 [](./src)
 
-## Program 17: invokeAny()
+## Question 2
 
+```java
+import java.util.HashSet;
+import java.util.Set;
+
+class Student {
+	int id;
+	String name;
+
+	Student(int id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+}
+
+public class Main {
+	public static void main(String[] args) {
+		Set<Student> students = new HashSet<>();
+
+		students.add(new Student(101, "Rahul"));
+		students.add(new Student(101, "Rahul"));
+
+		System.out.println(students.size());
+	}
+}
 ```
 
 ```
-
+Write:
+	1. Why can output be 2 ?
+	2. What is missing in Student class?
+	3. Correct using equals() and hashCode() based on id .
 ```
 
+[](./src)
+
+## Question 3
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+	public static void main(String[] args) {
+		List<String> names = new ArrayList<>();
+
+		names.add("Rahul");
+		names.add("Priya");
+		names.add("Amit");
+
+		for (String name : names) {
+			if (name.equals("Priya")) {
+				names.remove(name);
+			}
+		}
+	}
+}
+```
+
+```
+Write:
+	1. What exception can occur?
+	2. Why does it happen?
+	3. Correct using Iterator.
+```
+
+[](./src)
+
+## Question 4
+
+```java
+import java.util.Set;
+import java.util.TreeSet;
+
+class Product {
+	int id;
+	String name;
+}
+
+public class Main {
+	public static void main(String[] args) {
+		Set<Product> products = new TreeSet<>();
+		products.add(new Product());
+	}
+}
+```
+
+```
+Write:
+	1. What problem can happen?
+	2. Why does TreeSet need sorting logic?
+	3. Correct using Comparator.
+```
+
+[](./src)
+
+## Question 5
+
+```java
+Map<Integer, String> map = new HashMap<>();
+map.put(101, "Rahul");
+map.put(101, "Priya");
+```
+
+```
+Write:
+	1. How many entries are stored?
+	2. Which value remains?
+	3. Why?
 ```
 
 [](./src)
 
 # Part E: Coding Practice
 
-## Program 1: Create Thread Using Runnable
+## Program 1: Student List
 
 ```
+Create a Student class with:
+	id
+	name
+	marks
 
-```
+Create an ArrayList<Student>.
 
-```
+Add 5 students.
 
-```
-
-[](./src)
-
-## Program 2: Create Thread Using Runnable
-
-```
-
-```
-
-```
-
+Print all students using enhanced for loop.
 ```
 
 [](./src)
 
-## Program 3: start() vs run()
+## Program 2: Search Student By Id
 
 ```
+Using the same student list, search student by id.
 
-```
+If found, print student details.
 
-```
+If not found, print:
+	Student not found
 
-```
-
-[](./src)
-
-## Program 4: Download Then Process
-
-```
-
-```
-
-```
-
+Write:
+	Is ArrayList the fastest structure for id lookup?
+	Which collection would be better?
 ```
 
 [](./src)
 
-## Program 5: Order Processing With join()
+## Program 3: Unique Emails
 
 ```
+Create a list with duplicate email ids.
 
-```
+Remove duplicates using HashSet .
 
-```
+Print unique emails.
 
-```
-
-[](./src)
-
-## Program 6: Race Condition Demo
-
-```
-
-```
-
-```
-
+Write:
+	Is order guaranteed?
 ```
 
 [](./src)
 
-## Program 7: Ticket Booking With synchronized
+## Program 4: Unique Emails With Order
 
 ```
+Repeat Program 3 using LinkedHashSet .
 
-```
-
-```
-
-```
-
-[](./src)
-
-## Program 8: Ticket Booking With ReentrantLock
-
-```
-
-```
-
-```
-
+Print emails in original order.
 ```
 
 [](./src)
 
-## Program 9: Wallet Debit With tryLock()
+## Program 5: Sorted Roll Numbers
 
 ```
+Create a TreeSet<Integer> for roll numbers.
 
-```
+Add roll numbers in random order.
 
-```
-
-```
-
-[](./src)
-
-## Program 10: FixedThreadPool Email Sender
-
-```
-
-```
-
-```
-
+Print sorted roll numbers.
 ```
 
 [](./src)
 
-## Program 11: SingleThreadExecutor Audit Log
+## Program 6: Product Lookup Using HashMap
 
 ```
+Create Product class with:
+	id
+	name
+	price
 
-```
+Create:
+	Map<Integer, Product> products = new HashMap<>();
 
-```
+Store 5 products.
 
-```
-
-[](./src)
-
-## Program 12: ScheduledExecutorService
-
-```
-
-```
-
-```
-
+Search product by id.
 ```
 
 [](./src)
 
-## Program 13: Callable And Future
+## Program 7: Word Frequency Counter
 
 ```
+Given:
+	java spring java sql spring java
 
-```
+Use HashMap<String, Integer> to count frequency.
 
-```
-
-```
-
-[](./src)
-
-## Program 14: Payment Status With Callable
-
-```
-
-```
-
-```
-
+Expected output idea:
+	java = 3
+	spring = 2
+	sql = 1
 ```
 
 [](./src)
 
-## Program 15: Dashboard Loading
+## Program 8: Character Frequency Counter
 
 ```
+Given:
+	banana
 
+Use HashMap<Character, Integer> to count each character.
 ```
 
+[](./src)
+
+## Program 9: Shopping Cart
+
+```
+Create a shopping cart using:
+	List<Product>
+
+Add 4 products.
+
+Calculate total bill.
+
+Then explain:
+	Why List is suitable here?
 ```
 
+[](./src)
+
+## Program 10: Support Ticket Priority
+
+```
+Create class SupportTicket with:
+	ticketId
+	title
+	priority
+
+Use PriorityQueue<SupportTicket> .
+
+Lower priority number means higher priority.
+
+Process tickets based on priority.
+```
+
+[](./src)
+
+## Program 11: Browser History
+
+```
+Use ArrayDeque<String> as stack.
+Push:
+	Home
+	Courses
+	Java
+	Collections
+
+Use pop() to go back.
+
+Print current page after going back.
+```
+
+[](./src)
+
+## Program 12: Sort Students By Marks
+
+```
+Create Student class with:
+	id
+	name
+	marks
+
+Use Comparator to sort students by marks ascending.
+
+Then sort by marks descending.
+```
+
+[](./src)
+
+## Program 13: Sort Products By Price Then Name
+
+```
+Create Product class with:
+	id
+	name
+	price
+
+Sort products:
+	1. By price ascending
+	2. If price is same, by name alphabetically
+
+Use Comparator
+```
+
+[](./src)
+
+## Program 14: Comparable Practice
+
+```
+Create Employee class implementing Comparable<Employee>.
+
+Natural sorting should be by employee id.
+
+Create list of employees and sort using:
+	Collections.sort(employees);
+```
+
+[](./src)
+
+## Program 15: Course Management Mini Data
+
+```
+Use different collections:
+	1. ArrayList<String> for enrolled students
+	2. HashSet<String> for unique emails
+	3. HashMap<Integer, String> for course id and course name
+	4. TreeSet<Integer> for sorted roll numbers
+	5. LinkedHashSet<String> for uploaded emails without duplicates but same order
+
+Print all data.
 ```
 
 [](./src)
@@ -987,16 +1138,106 @@ public class Main {
 # Part H: Real-World Thinking Questions
 
 1. **In a login system, where can we use HashMap ?**
+
+   > HashMap can store **username → password** or **userId → userObject** for fast lookup.  
+   > Example:
+   >
+   > ```java
+   > Map<String, String> loginData = new HashMap<>();
+   > loginData.put("alice", "password123");
+   > System.out.println(loginData.get("alice")); // password123
+   > ```
+
 2. **In a course platform, where can we use ArrayList ?**
+
+   > ArrayList can store list of **courses, lessons, or enrolled students** where order matters and duplicates are allowed.  
+   > Example:
+   >
+   > ```java
+   > List<String> courses = new ArrayList<>();
+   > courses.add("Java Basics");
+   > courses.add("SQL Fundamentals");
+   > ```
+
 3. **In uploaded CSV email validation, why can LinkedHashSet be useful?**
+
+   > LinkedHashSet removes duplicates but keeps the **original upload order**.  
+   > Example:
+   >
+   > ```java
+   > Set<String> emails = new LinkedHashSet<>();
+   > emails.add("a@gmail.com");
+   > emails.add("b@gmail.com");
+   > emails.add("a@gmail.com"); // duplicate ignored
+   > ```
+
 4. **In a support system, why can PriorityQueue be useful?**
+
+   > PriorityQueue processes tickets based on **priority** (e.g., urgent first).  
+   > Example:
+   >
+   > ```java
+   > Queue<Integer> tickets = new PriorityQueue<>();
+   > tickets.add(3); // low priority
+   > tickets.add(1); // high priority
+   > System.out.println(tickets.poll()); // 1
+   > ```
+
 5. **In a report sorted by date, why can TreeMap be useful?**
+
+   > TreeMap stores keys in **sorted order**, perfect for chronological reports.  
+   > Example:
+   >
+   > ```java
+   > Map<String, Integer> report = new TreeMap<>();
+   > report.put("2026-01-01", 100);
+   > report.put("2026-01-03", 300);
+   > report.put("2026-01-02", 200);
+   > // Keys sorted automatically
+   > ```
+
 6. **In product search result, why is ArrayList usually enough?**
+
+   > Search results are shown in order and duplicates may exist. ArrayList maintains order and allows duplicates.  
+   > Example:
+   >
+   > ```java
+   > List<String> results = new ArrayList<>();
+   > results.add("Laptop");
+   > results.add("Laptop"); // duplicate allowed
+   > ```
+
 7. **In role management, why is HashSet useful?**
-   Genie Ashwani
+
+   > Roles must be **unique** (e.g., Admin, User, Manager). HashSet ensures no duplicates.  
+   > Example:
+   >
+   > ```java
+   > Set<String> roles = new HashSet<>();
+   > roles.add("Admin");
+   > roles.add("User");
+   > roles.add("Admin"); // ignored
+   > ```
+
 8. **In API response, why might order matter?**
+
+   > Clients often expect data in the same order as database query. Using **List** preserves insertion order.  
+   > Example:
+   >
+   > ```java
+   > List<String> response = new ArrayList<>();
+   > response.add("Row1");
+   > response.add("Row2");
+   > ```
+
 9. **Why should we not select collections by habit?**
+
+   > Each collection has different strengths. Wrong choice can cause **performance issues** or incorrect behavior.  
+   > Example: Using ArrayList for frequent middle insertions → slow.
+
 10. **Why is understanding internal working important for backend developers?**
+    > Backend systems handle large data. Knowing internal working helps in **choosing the right collection** for speed, memory, and correctness.  
+    > Example: HashMap for fast lookup, TreeMap for sorted data, LinkedHashSet for order + uniqueness.
 
 # Part I: Mini Project
 
