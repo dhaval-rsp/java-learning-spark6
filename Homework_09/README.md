@@ -191,7 +191,7 @@ Duplicate names are allowed.
   students.add("Alice"); // duplicate allowed
   ```
 
-## Question 2
+## `Question 2`
 
 ```
 Store unique email ids from registration form.
@@ -209,7 +209,7 @@ Order does not matter.
   emails.add("a@gmail.com"); // duplicate ignored
   ```
 
-## Question 3
+## `Question 3`
 
 ```
 Remove duplicate uploaded emails but keep original upload order.
@@ -226,7 +226,7 @@ Remove duplicate uploaded emails but keep original upload order.
   emails.add("a@gmail.com"); // duplicate ignored, order kept
   ```
 
-## Question 4
+## `Question 4`
 
 ```
 Store unique roll numbers in sorted order.
@@ -244,7 +244,7 @@ Store unique roll numbers in sorted order.
   // Output: [101, 102, 103]
   ```
 
-## Question 5
+## `Question 5`
 
 ```
 Store productId and Product object for fast search by id.
@@ -261,7 +261,7 @@ Store productId and Product object for fast search by id.
   System.out.println(products.get(101)); // Laptop
   ```
 
-## Question 6
+## `Question 6`
 
 ```
 Store monthly sales where month keys should be sorted.
@@ -279,7 +279,7 @@ Store monthly sales where month keys should be sorted.
   // Keys sorted: {January=100, February=200, March=300}
   ```
 
-## Question 7
+## `Question 7`
 
 ```
 Process support tickets by priority.
@@ -297,7 +297,7 @@ Process support tickets by priority.
   System.out.println(tickets.poll()); // 1 (highest priority)
   ```
 
-## Question 8
+## `Question 8`
 
 ```
 Implement browser back button behavior.
@@ -315,7 +315,7 @@ Implement browser back button behavior.
   System.out.println(history.pop()); // Page3
   ```
 
-## Question 9
+## `Question 9`
 
 ```
 Store API response data in the same order as database query returned.
@@ -332,7 +332,7 @@ Store API response data in the same order as database query returned.
   response.add("Row3");
   ```
 
-## Question 10
+## `Question 10`
 
 ```
 Count frequency of each word in a paragraph.
@@ -609,7 +609,7 @@ public class Main {
 
 # Part D: Find And Fix The Problem
 
-## Question 1
+## `Question 1`
 
 ```java
 ArrayList<int> numbers = new ArrayList<>();
@@ -624,7 +624,7 @@ Write:
 
 [](./src)
 
-## Question 2
+## `Question 2`
 
 ```java
 import java.util.HashSet;
@@ -661,7 +661,7 @@ Write:
 
 [](./src)
 
-## Question 3
+## `Question 3`
 
 ```java
 import java.util.ArrayList;
@@ -693,7 +693,7 @@ Write:
 
 [](./src)
 
-## Question 4
+## `Question 4`
 
 ```java
 import java.util.Set;
@@ -721,7 +721,7 @@ Write:
 
 [](./src)
 
-## Question 5
+## `Question 5`
 
 ```java
 Map<Integer, String> map = new HashMap<>();
@@ -740,7 +740,7 @@ Write:
 
 # Part E: Coding Practice
 
-## Program 1: Student List
+## `Program 1: Student List`
 
 ```
 Create a Student class with:
@@ -757,7 +757,7 @@ Print all students using enhanced for loop.
 
 [](./src)
 
-## Program 2: Search Student By Id
+## `Program 2: Search Student By Id`
 
 ```
 Using the same student list, search student by id.
@@ -774,7 +774,7 @@ Write:
 
 [](./src)
 
-## Program 3: Unique Emails
+## `Program 3: Unique Emails`
 
 ```
 Create a list with duplicate email ids.
@@ -789,7 +789,7 @@ Write:
 
 [](./src)
 
-## Program 4: Unique Emails With Order
+## `Program 4: Unique Emails With Order`
 
 ```
 Repeat Program 3 using LinkedHashSet .
@@ -799,7 +799,7 @@ Print emails in original order.
 
 [](./src)
 
-## Program 5: Sorted Roll Numbers
+## `Program 5: Sorted Roll Numbers`
 
 ```
 Create a TreeSet<Integer> for roll numbers.
@@ -811,7 +811,7 @@ Print sorted roll numbers.
 
 [](./src)
 
-## Program 6: Product Lookup Using HashMap
+## `Program 6: Product Lookup Using HashMap`
 
 ```
 Create Product class with:
@@ -829,7 +829,7 @@ Search product by id.
 
 [](./src)
 
-## Program 7: Word Frequency Counter
+## `Program 7: Word Frequency Counter`
 
 ```
 Given:
@@ -845,7 +845,7 @@ Expected output idea:
 
 [](./src)
 
-## Program 8: Character Frequency Counter
+## `Program 8: Character Frequency Counter`
 
 ```
 Given:
@@ -856,7 +856,7 @@ Use HashMap<Character, Integer> to count each character.
 
 [](./src)
 
-## Program 9: Shopping Cart
+## `Program 9: Shopping Cart`
 
 ```
 Create a shopping cart using:
@@ -872,7 +872,7 @@ Then explain:
 
 [](./src)
 
-## Program 10: Support Ticket Priority
+## `Program 10: Support Ticket Priority`
 
 ```
 Create class SupportTicket with:
@@ -889,7 +889,7 @@ Process tickets based on priority.
 
 [](./src)
 
-## Program 11: Browser History
+## `Program 11: Browser History`
 
 ```
 Use ArrayDeque<String> as stack.
@@ -906,7 +906,7 @@ Print current page after going back.
 
 [](./src)
 
-## Program 12: Sort Students By Marks
+## `Program 12: Sort Students By Marks`
 
 ```
 Create Student class with:
@@ -921,7 +921,7 @@ Then sort by marks descending.
 
 [](./src)
 
-## Program 13: Sort Products By Price Then Name
+## `Program 13: Sort Products By Price Then Name`
 
 ```
 Create Product class with:
@@ -938,7 +938,7 @@ Use Comparator
 
 [](./src)
 
-## Program 14: Comparable Practice
+## `Program 14: Comparable Practice`
 
 ```
 Create Employee class implementing Comparable<Employee>.
@@ -951,7 +951,7 @@ Create list of employees and sort using:
 
 [](./src)
 
-## Program 15: Course Management Mini Data
+## `Program 15: Course Management Mini Data`
 
 ```
 Use different collections:
@@ -1041,7 +1041,7 @@ Print all data.
 
 # Part G: Difference Questions
 
-| `A.`       | `Array`                          | `ArrayList`                                    |
+| _`A.`_     | _`Array`_                        | _`ArrayList`_                                  |
 | ---------- | -------------------------------- | ---------------------------------------------- |
 | Definition | Fixed-size data structure        | Resizable collection class                     |
 | Size       | Cannot grow/shrink               | Grows/shrinks dynamically                      |
@@ -1050,7 +1050,7 @@ Print all data.
 
 ---
 
-| `B.`               | `ArrayList`                       | `LinkedList`                         |
+| _`B.`_             | _`ArrayList`_                     | _`LinkedList`_                       |
 | ------------------ | --------------------------------- | ------------------------------------ |
 | Internal Structure | Dynamic array                     | Doubly linked list                   |
 | Access             | Fast random access (`get(index)`) | Slow random access (traverses nodes) |
@@ -1059,7 +1059,7 @@ Print all data.
 
 ---
 
-| `C.`       | `List`                                | `Set`                              |
+| _`C.`_     | _`List`_                              | _`Set`_                            |
 | ---------- | ------------------------------------- | ---------------------------------- |
 | Duplicates | Allowed                               | Not allowed                        |
 | Order      | Maintains insertion order             | Depends on implementation          |
@@ -1067,7 +1067,7 @@ Print all data.
 
 ---
 
-| `D.`        | `HashSet`           | `LinkedHashSet`                          |
+| _`D.`_      | _`HashSet`_         | _`LinkedHashSet`_                        |
 | ----------- | ------------------- | ---------------------------------------- |
 | Order       | No order guaranteed | Maintains insertion order                |
 | Performance | Slightly faster     | Slightly slower due to order maintenance |
@@ -1075,7 +1075,7 @@ Print all data.
 
 ---
 
-| `E.`    | `HashSet`           | `TreeSet`                       |
+| _`E.`_  | _`HashSet`_         | _`TreeSet`_                     |
 | ------- | ------------------- | ------------------------------- |
 | Order   | No order guaranteed | Stores elements in sorted order |
 | Nulls   | Allows one null     | Does not allow null             |
@@ -1083,7 +1083,7 @@ Print all data.
 
 ---
 
-| `F.`     | `HashMap`           | `LinkedHashMap`                   |
+| _`F.`_   | _`HashMap`_         | _`LinkedHashMap`_                 |
 | -------- | ------------------- | --------------------------------- |
 | Order    | No order guaranteed | Maintains insertion order of keys |
 | Use Case | Fast lookup         | Predictable iteration order       |
@@ -1091,7 +1091,7 @@ Print all data.
 
 ---
 
-| `G.`        | `HashMap`           | `TreeMap`                   |
+| _`G.`_      | _`HashMap`_         | _`TreeMap`_                 |
 | ----------- | ------------------- | --------------------------- |
 | Order       | No order guaranteed | Keys stored in sorted order |
 | Performance | Faster              | Slower due to sorting       |
@@ -1099,21 +1099,21 @@ Print all data.
 
 ---
 
-| `H.`      | `Queue`                                  | `Stack`                             |
+| _`H.`_    | _`Queue`_                                | _`Stack`_                           |
 | --------- | ---------------------------------------- | ----------------------------------- |
 | Principle | FIFO (First In First Out)                | LIFO (Last In First Out)            |
 | Example   | `Queue<Integer> q = new LinkedList<>();` | `Stack<Integer> s = new Stack<>();` |
 
 ---
 
-| `I.`    | `PriorityQueue`         | `Normal Queue`           |
+| _`I.`_  | _`PriorityQueue`_       | _`Normal Queue`_         |
 | ------- | ----------------------- | ------------------------ |
 | Order   | Based on priority       | Based on insertion order |
 | Example | `new PriorityQueue<>()` | `new LinkedList<>()`     |
 
 ---
 
-| `J.`     | `Comparable`                                   | `Comparator`                         |
+| _`J.`_   | _`Comparable`_                                 | _`Comparator`_                       |
 | -------- | ---------------------------------------------- | ------------------------------------ |
 | Method   | `compareTo()`                                  | `compare()`                          |
 | Ordering | Natural ordering                               | Custom ordering                      |
@@ -1122,7 +1122,7 @@ Print all data.
 
 ---
 
-| `K.`        | `Iterator`                               | `Enhanced for loop`      |
+| _`K.`_      | _`Iterator`_                             | _`Enhanced for loop`_    |
 | ----------- | ---------------------------------------- | ------------------------ |
 | Flexibility | Allows remove while iterating            | Only read access         |
 | Syntax      | `Iterator<String> it = list.iterator();` | `for(String s : list)`   |
@@ -1130,7 +1130,7 @@ Print all data.
 
 ---
 
-| `L.`       | `Collection`                                | `Collections`                     |
+| _`L.`_     | _`Collection`_                              | _`Collections`_                   |
 | ---------- | ------------------------------------------- | --------------------------------- |
 | Definition | Root interface of collection framework      | Utility class with static methods |
 | Example    | `Collection<String> c = new ArrayList<>();` | `Collections.sort(list);`         |
