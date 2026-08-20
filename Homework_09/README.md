@@ -648,6 +648,13 @@ public class Main {
 [30, 20, 10]
 ```
 
+> 🔑 Quick Notes
+>
+> Lists (ArrayList, ArrayDeque) → Maintain insertion order, allow duplicates.  
+> Sets (HashSet, LinkedHashSet, TreeSet) → No duplicates; order varies (none, insertion, or sorted).  
+> Maps (HashMap, LinkedHashMap, TreeMap) → Keys must be unique; values can repeat. Order depends on implementation.  
+> PriorityQueue → Orders elements by priority, not insertion; duplicates allowed.
+
 # Part D: Find And Fix The Problem
 
 ## `Question 1`
@@ -663,7 +670,15 @@ Write:
 	3. Correct the code.
 ```
 
-[](./src)
+> **Answer:**
+>
+> 1.  **Error:** `int` (primitive type) is not allowed in generics.
+> 2.  **Reason:** Generics work only with objects. Primitives are not objects, so you must use their **Wrapper Classes**.
+> 3.  **Correct Code:**
+>
+> > ```java
+> > ArrayList<Integer> numbers = new ArrayList<>();
+> > ```
 
 ## `Question 2`
 
@@ -700,7 +715,36 @@ Write:
 	3. Correct using equals() and hashCode() based on id .
 ```
 
-[](./src)
+> **Answer:**
+>
+> 1.  **Why output can be 2?** Because `HashSet` cannot detect duplicates without `equals()` and `hashCode()`.
+> 2.  **Missing:** The `Student` class does not override `equals()` and `hashCode()`.
+> 3.  **Correct Code:**
+>
+> > ```java
+> > class Student {
+> >     int id;
+> >     String name;
+> >
+> >     Student(int id, String name) {
+> >         this.id = id;
+> >         this.name = name;
+> >     }
+> >
+> >     @Override
+> >     public boolean equals(Object o) {
+> >         if (this == o) return true;
+> >         if (!(o instanceof Student)) return false;
+> >         Student s = (Student) o;
+> >         return this.id == s.id;
+> >     }
+> >
+> >     @Override
+> >     public int hashCode() {
+> >         return Integer.hashCode(id);
+> >     }
+> > }
+> > ```
 
 ## `Question 3`
 
@@ -732,7 +776,19 @@ Write:
 	3. Correct using Iterator.
 ```
 
-[](./src)
+> **Answer:**
+>
+> 1.  **Exception:** `ConcurrentModificationException`.
+> 2.  **Reason:** Removing elements directly while iterating with `for-each` modifies the list structure.
+> 3.  **Correct Code using Iterator:**
+>     > ```java
+>     > Iterator<String> it = names.iterator();
+>     > while (it.hasNext()) {
+>     >     if (it.next().equals("Priya")) {
+>     >         it.remove();
+>     >     }
+>     > }
+>     > ```
 
 ## `Question 4`
 
@@ -760,7 +816,15 @@ Write:
 	3. Correct using Comparator.
 ```
 
-[](./src)
+> **Answer:**
+>
+> 1.  **Problem:** `ClassCastException` can occur.
+> 2.  **Reason:** `TreeSet` requires sorting logic (natural order or comparator).
+> 3.  **Correct Code using Comparator:**
+>     > ```java
+>     > Set<Product> products = new TreeSet<>((p1, p2) -> Integer.compare(p1.id, p2.id));
+>     > products.add(new Product());
+>     > ```
 
 ## `Question 5`
 
@@ -777,7 +841,11 @@ Write:
 	3. Why?
 ```
 
-[](./src)
+> **Answer:**
+>
+> 1.  **Entries stored:** Only **1 entry**.
+> 2.  **Remaining value:** `"Priya"`.
+> 3.  **Reason:** Keys in a `HashMap` must be unique. Adding the same key again replaces the old value.
 
 # Part E: Coding Practice
 
@@ -1011,28 +1079,28 @@ Print all data.
 
 1. **How does ArrayList grow internally?**
 
-   > When ArrayList becomes full, it creates a new array with **1.5 times** the old capacity and copies old elements into it.  
+   > When ArrayList becomes full, it creates a new array with **1.5 times** the old capacity and copies old elements into it.
    > Example: Capacity 10 → grows to 15.
 
 2. **What is the difference between size and capacity?**
 
-   > **Size** = number of elements currently stored.  
-   > **Capacity** = maximum elements it can hold before resizing.  
+   > **Size** = number of elements currently stored.
+   > **Capacity** = maximum elements it can hold before resizing.
    > Example: `ArrayList` with capacity 10 but size 7.
 
 3. **Why is inserting in middle of ArrayList slower?**
 
-   > Because elements after the insertion index must be shifted one position to the right.  
+   > Because elements after the insertion index must be shifted one position to the right.
    > Example: Inserting at index 2 in `[A, B, C, D]` → shifts `C, D`.
 
 4. **How does LinkedList store data internally?**
 
-   > As a **doubly linked list** where each node has data, a reference to the previous node, and a reference to the next node.  
+   > As a **doubly linked list** where each node has data, a reference to the previous node, and a reference to the next node.
    > Example: `Node(data, prev, next)`
 
 5. **Why is LinkedList slower for get(index)?**
 
-   > It must traverse nodes one by one until the index is reached.  
+   > It must traverse nodes one by one until the index is reached.
    > Example: `list.get(50)` → starts from head/tail and walks through 50 nodes.
 
 6. **How does HashSet check duplicates?**
@@ -1041,8 +1109,8 @@ Print all data.
 
 7. **Why does HashSet need hashCode() and equals()?**
 
-   > To ensure uniqueness.  
-   > `hashCode()` decides bucket, `equals()` confirms equality.  
+   > To ensure uniqueness.
+   > `hashCode()` decides bucket, `equals()` confirms equality.
    > Example: Two objects with same hash but different equals → stored separately.
 
 8. **How does HashMap store key-value pairs?**
@@ -1055,12 +1123,12 @@ Print all data.
 
 10. **What is collision in HashMap?**
 
-    > When two different keys generate the same hash and end up in the same bucket.  
+    > When two different keys generate the same hash and end up in the same bucket.
     > Example: `key1.hashCode() == key2.hashCode()`
 
 11. **What is load factor?**
 
-    > Ratio of number of elements to capacity.  
+    > Ratio of number of elements to capacity.
     > Example: Capacity 16, size 12 → load factor = 12/16 = 0.75.
 
 12. **What happens during HashMap resizing?**
@@ -1073,11 +1141,11 @@ Print all data.
 
 14. **Why does PriorityQueue use heap?**
 
-    > Heap ensures efficient retrieval of the smallest/largest element in **O(log n)** time.  
+    > Heap ensures efficient retrieval of the smallest/largest element in **O(log n)** time.
     > Example: Min‑heap → `poll()` always gives smallest element.
 
 15. **Why can HashMap be faster than TreeMap for lookup?**
-    > HashMap lookup is **O(1)** average (direct bucket access).  
+    > HashMap lookup is **O(1)** average (direct bucket access).
     > TreeMap lookup is **O(log n)** (tree traversal).
 
 # Part G: Difference Questions
@@ -1180,7 +1248,7 @@ Print all data.
 
 1. **In a login system, where can we use HashMap ?**
 
-   > HashMap can store **username → password** or **userId → userObject** for fast lookup.  
+   > HashMap can store **username → password** or **userId → userObject** for fast lookup.
    > Example:
    >
    > ```java
@@ -1191,7 +1259,7 @@ Print all data.
 
 2. **In a course platform, where can we use ArrayList ?**
 
-   > ArrayList can store list of **courses, lessons, or enrolled students** where order matters and duplicates are allowed.  
+   > ArrayList can store list of **courses, lessons, or enrolled students** where order matters and duplicates are allowed.
    > Example:
    >
    > ```java
@@ -1202,7 +1270,7 @@ Print all data.
 
 3. **In uploaded CSV email validation, why can LinkedHashSet be useful?**
 
-   > LinkedHashSet removes duplicates but keeps the **original upload order**.  
+   > LinkedHashSet removes duplicates but keeps the **original upload order**.
    > Example:
    >
    > ```java
@@ -1214,7 +1282,7 @@ Print all data.
 
 4. **In a support system, why can PriorityQueue be useful?**
 
-   > PriorityQueue processes tickets based on **priority** (e.g., urgent first).  
+   > PriorityQueue processes tickets based on **priority** (e.g., urgent first).
    > Example:
    >
    > ```java
@@ -1226,7 +1294,7 @@ Print all data.
 
 5. **In a report sorted by date, why can TreeMap be useful?**
 
-   > TreeMap stores keys in **sorted order**, perfect for chronological reports.  
+   > TreeMap stores keys in **sorted order**, perfect for chronological reports.
    > Example:
    >
    > ```java
@@ -1239,7 +1307,7 @@ Print all data.
 
 6. **In product search result, why is ArrayList usually enough?**
 
-   > Search results are shown in order and duplicates may exist. ArrayList maintains order and allows duplicates.  
+   > Search results are shown in order and duplicates may exist. ArrayList maintains order and allows duplicates.
    > Example:
    >
    > ```java
@@ -1250,7 +1318,7 @@ Print all data.
 
 7. **In role management, why is HashSet useful?**
 
-   > Roles must be **unique** (e.g., Admin, User, Manager). HashSet ensures no duplicates.  
+   > Roles must be **unique** (e.g., Admin, User, Manager). HashSet ensures no duplicates.
    > Example:
    >
    > ```java
@@ -1262,7 +1330,7 @@ Print all data.
 
 8. **In API response, why might order matter?**
 
-   > Clients often expect data in the same order as database query. Using **List** preserves insertion order.  
+   > Clients often expect data in the same order as database query. Using **List** preserves insertion order.
    > Example:
    >
    > ```java
@@ -1273,11 +1341,11 @@ Print all data.
 
 9. **Why should we not select collections by habit?**
 
-   > Each collection has different strengths. Wrong choice can cause **performance issues** or incorrect behavior.  
+   > Each collection has different strengths. Wrong choice can cause **performance issues** or incorrect behavior.
    > Example: Using ArrayList for frequent middle insertions → slow.
 
 10. **Why is understanding internal working important for backend developers?**
-    > Backend systems handle large data. Knowing internal working helps in **choosing the right collection** for speed, memory, and correctness.  
+    > Backend systems handle large data. Knowing internal working helps in **choosing the right collection** for speed, memory, and correctness.
     > Example: HashMap for fast lookup, TreeMap for sorted data, LinkedHashSet for order + uniqueness.
 
 # Part I: Mini Project
@@ -1318,3 +1386,7 @@ Requirements:
 ```
 
 [](./src)
+
+```
+
+```
