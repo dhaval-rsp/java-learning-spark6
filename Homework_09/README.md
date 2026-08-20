@@ -373,9 +373,13 @@ public class Main {
 }
 ```
 
-```java
+```
 // Answer
 
+// Insertion order maintained + Duplicate Allowed
+
+[Rahul, Priya, Rahul]
+Priya
 ```
 
 ## `Question 2`
@@ -400,9 +404,13 @@ public class Main {
 //Is output order guaranteed?
 ```
 
-```java
+```
 // Answer
 
+// Order not guaranteed + No Duplicate
+
+2
+[Rahul, Priya]
 ```
 
 ## `Question 3`
@@ -425,9 +433,12 @@ public class Main {
 }
 ```
 
-```java
+```
 // Answer
 
+// Insertion order maintained + No Duplicate
+
+[Rahul, Priya, Amit]
 ```
 
 ## `Question 4`
@@ -450,9 +461,12 @@ public class Main {
 }
 ```
 
-```java
+```
 // Answer
 
+// Sorted (natural order or comparator) + No Duplicate
+
+[10, 30, 50]
 ```
 
 ## `Question 5`
@@ -478,6 +492,10 @@ public class Main {
 ```java
 // Answer
 
+// Order not guaranteed + No Duplicate (keys must be unique, values can repeat)
+
+95
+2
 ```
 
 ## `Question 6`
@@ -499,9 +517,12 @@ public class Main {
 }
 ```
 
-```java
+```
 // Answer
 
+// Insertion order maintained + No Duplicate (keys must be unique, values can repeat)
+
+{103=Amit, 101=Rahul, 102=Priya}
 ```
 
 ## `Question 7`
@@ -523,9 +544,12 @@ public class Main {
 }
 ```
 
-```java
+```
 // Answer
 
+// Sorted (by keys, natural order or comparator) + No Duplicate (keys must be unique, values can repeat)
+
+{101=Rahul, 102=Priya, 103=Amit}
 ```
 
 ## `Question 8`
@@ -549,9 +573,13 @@ public class Main {
 }
 ```
 
-```java
+```
 // Answer
 
+// Sorted by priority (natural order or comparator) + Duplicate Allowed
+10
+30
+50
 ```
 
 ## `Question 9`
@@ -574,10 +602,20 @@ public class Main {
 }
 ```
 
-```java
+```
 // Answer
 
+// Insertion order maintained (FIFO/LIFO depending on usage) + Duplicate Allowed
+
+Page-3
+Page-2
 ```
+
+| Feature              | pop()                                 | peek()                                        |
+| -------------------- | ------------------------------------- | --------------------------------------------- |
+| Action               | Removes and returns the head element. | Returns the head element without removing it. |
+| Empty Deque Behavior | Throws NoSuchElementException.        | Returns null.                                 |
+| Equivalence          | Equivalent to removeFirst().          | Equivalent to peekFirst().                    |
 
 ## `Question 10`
 
@@ -602,9 +640,12 @@ public class Main {
 }
 ```
 
-```java
+```
 // Answer
 
+// Insertion order maintained + Duplicate Allowed
+
+[30, 20, 10]
 ```
 
 # Part D: Find And Fix The Problem
