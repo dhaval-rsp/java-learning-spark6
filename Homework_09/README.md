@@ -1,3 +1,13 @@
+- [Part A: Short Answer Questions](#part-a-short-answer-questions)
+- [Part B: Choose The Correct Collection](#part-b-choose-the-correct-collection)
+- [Part C: Find The Output](#part-c-find-the-output)
+- [Part D: Find And Fix The Problem](#part-d-find-and-fix-the-problem)
+- [Part E: Coding Practice](#part-e-coding-practice)
+- [Part F: Internal Working Questions](#part-f-internal-working-questions)
+- [Part G: Difference Questions](#part-g-difference-questions)
+- [Part H: Real-World Thinking Questions](#part-h-real-world-thinking-questions)
+- [Part I: Mini Project](#part-i-mini-project)
+
 # Part A: Short Answer Questions
 
 1. **`Why` do we need `Collections` when arrays already exist?**
