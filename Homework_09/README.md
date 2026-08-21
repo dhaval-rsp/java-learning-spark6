@@ -1385,8 +1385,4 @@ Requirements:
 	7. Explain why each collection was used.
 ```
 
-[](./src)
-
-```
-
-```
+[Part_I_MiniProject.java](./src/Part_I_MiniProject.java)
