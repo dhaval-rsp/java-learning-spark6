@@ -874,7 +874,7 @@ Add 5 students.
 Print all students using enhanced for loop.
 ```
 
-[](./src)
+[P1_StudentList.java](./src/P1_StudentList.java)
 
 ## `Program 2: Search Student By Id`
 
@@ -891,7 +891,7 @@ Write:
 	Which collection would be better?
 ```
 
-[](./src)
+[P2_SearchStudentById.java](./src/P2_SearchStudentById.java)
 
 ## `Program 3: Unique Emails`
 
@@ -906,7 +906,7 @@ Write:
 	Is order guaranteed?
 ```
 
-[](./src)
+[P3_UniqueEmails.java](./src/P3_UniqueEmails.java)
 
 ## `Program 4: Unique Emails With Order`
 
@@ -916,7 +916,7 @@ Repeat Program 3 using LinkedHashSet .
 Print emails in original order.
 ```
 
-[](./src)
+[P4_UniqueEmailsWithOrder.java](./src/P4_UniqueEmailsWithOrder.java)
 
 ## `Program 5: Sorted Roll Numbers`
 
@@ -928,7 +928,7 @@ Add roll numbers in random order.
 Print sorted roll numbers.
 ```
 
-[](./src)
+[P5_SortedRollNumbers.java](./src/P5_SortedRollNumbers.java)
 
 ## `Program 6: Product Lookup Using HashMap`
 
@@ -946,7 +946,7 @@ Store 5 products.
 Search product by id.
 ```
 
-[](./src)
+[P6_ProductLookupUsingHashMap.java](./src/P6_ProductLookupUsingHashMap.java)
 
 ## `Program 7: Word Frequency Counter`
 
@@ -962,7 +962,7 @@ Expected output idea:
 	sql = 1
 ```
 
-[](./src)
+[P7_WordFrequencyCounter.java](./src/P7_WordFrequencyCounter.java)
 
 ## `Program 8: Character Frequency Counter`
 
@@ -973,7 +973,7 @@ Given:
 Use HashMap<Character, Integer> to count each character.
 ```
 
-[](./src)
+[P8_CharacterFrequencyCounter.java](./src/P8_CharacterFrequencyCounter.java)
 
 ## `Program 9: Shopping Cart`
 
@@ -989,7 +989,7 @@ Then explain:
 	Why List is suitable here?
 ```
 
-[](./src)
+[P9_ShoppingCart.java](./src/P9_ShoppingCart.java)
 
 ## `Program 10: Support Ticket Priority`
 
@@ -1006,7 +1006,7 @@ Lower priority number means higher priority.
 Process tickets based on priority.
 ```
 
-[](./src)
+[P10_SupportTicketPriority.java](./src/P10_SupportTicketPriority.java)
 
 ## `Program 11: Browser History`
 
@@ -1023,7 +1023,7 @@ Use pop() to go back.
 Print current page after going back.
 ```
 
-[](./src)
+[P11_BrowserHistory.java](./src/P11_BrowserHistory.java)
 
 ## `Program 12: Sort Students By Marks`
 
@@ -1038,7 +1038,7 @@ Use Comparator to sort students by marks ascending.
 Then sort by marks descending.
 ```
 
-[](./src)
+[P12_SortStudentsByMarks.java](./src/P12_SortStudentsByMarks.java)
 
 ## `Program 13: Sort Products By Price Then Name`
 
@@ -1055,7 +1055,7 @@ Sort products:
 Use Comparator
 ```
 
-[](./src)
+[P13_SortProductsByPriceThenName.java](./src/P13_SortProductsByPriceThenName.java)
 
 ## `Program 14: Comparable Practice`
 
@@ -1068,7 +1068,7 @@ Create list of employees and sort using:
 	Collections.sort(employees);
 ```
 
-[](./src)
+[P14_ComparablePractice.java](./src/P14_ComparablePractice.java)
 
 ## `Program 15: Course Management Mini Data`
 
@@ -1083,7 +1083,7 @@ Use different collections:
 Print all data.
 ```
 
-[](./src)
+[P15_CourseManagementMiniData.java](./src/P15_CourseManagementMiniData.java)
 
 # Part F: Internal Working Questions
 
