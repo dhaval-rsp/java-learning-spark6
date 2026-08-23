@@ -23,8 +23,6 @@ Learning JAVA from basic to advance level on code for success platform
 **In Java, `toString()` is a method that returns a string representation of an object.  
 By default, it shows the class name followed by the object’s hash code, but you can override it to display meaningful details about the object.**
 
----
-
 ### 🔹 Default Behavior
 
 - Defined in **`java.lang.Object`**, the root of all Java classes.
@@ -52,45 +50,38 @@ By default, it shows the class name followed by the object’s hash code, but yo
 
   **Output:** `Person@5e8c92f4` (class name + hex hash code) [GeeksForGeeks](https://www.geeksforgeeks.org/java/object-tostring-method-in-java/)
 
----
-
 ### 🔹 Why Override `toString()`
 
 - **Debugging:** Provides human-readable info about object state.
 - **Logging:** Makes logs more informative.
 - **Collections:** When printing lists/maps, `toString()` is automatically called on elements.
+- `Example of Overriding`
 
----
+  ```java
+  class Person {
+      String name;
+      int age;
 
-### 🔹 Example of Overriding
+      Person(String name, int age) {
+          this.name = name;
+          this.age = age;
+      }
 
-```java
-class Person {
-    String name;
-    int age;
+      @Override
+      public String toString() {
+          return "Person{name='" + name + "', age=" + age + "}";
+      }
+  }
 
-    Person(String name, int age) {
-        this.name = name;
-        this.age = age;
-    }
-
-    @Override
-    public String toString() {
-        return "Person{name='" + name + "', age=" + age + "}";
-    }
-}
-
-public class Main {
-    public static void main(String[] args) {
-        Person p = new Person("Alice", 25);
-        System.out.println(p); // calls toString()
-    }
-}
-```
+  public class Main {
+      public static void main(String[] args) {
+          Person p = new Person("Alice", 25);
+          System.out.println(p); // calls toString()
+      }
+  }
+  ```
 
 **Output:** `Person{name='Alice', age=25}` [javaspring.net](https://www.javaspring.net/blog/object-tostring-method-in-java/)
-
----
 
 ### 🔹 Best Practices
 
@@ -108,8 +99,6 @@ public class Main {
 
   [javawithus.com](https://javawithus.com/learn/methods/tostring/)
 
----
-
 ### 🔹 Comparison Table
 
 | **Aspect**           | **Default `toString()`** | **Overridden `toString()`**      |
@@ -119,10 +108,12 @@ public class Main {
 | Debugging Usefulness | Minimal                  | Very useful for logs & debugging |
 | Example Output       | `Person@15db9742`        | `Person{name='Alice', age=25}`   |
 
----
-
 ### 🔹 Key Takeaways
 
 - **Always override `toString()`** in custom classes for clarity.
 - Default output is only useful for identifying object identity, not state.
 - Good `toString()` implementations save time in debugging and logging.
+
+---
+
+## `Q2. `
