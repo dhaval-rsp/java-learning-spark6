@@ -18,7 +18,16 @@ Learning JAVA from basic to advance level on code for success platform
 
 # My Questions
 
-## `Q1. toString()`
+<details>
+
+<summary>
+<span style="
+  font-size:1.7em; 
+  font-family:monospace; 
+  font-weight:bold; ">
+[Q1.] basics of 'toString()' 
+</span>
+</summary>
 
 **In Java, `toString()` is a method that returns a string representation of an object.  
 By default, it shows the class name followed by the object’s hash code, but you can override it to display meaningful details about the object.**
@@ -114,6 +123,111 @@ By default, it shows the class name followed by the object’s hash code, but yo
 - Default output is only useful for identifying object identity, not state.
 - Good `toString()` implementations save time in debugging and logging.
 
+</details>
+
 ---
 
-## `Q2. `
+<details>
+
+<summary>
+<span style="
+  font-size:1.7em; 
+  font-family:monospace; 
+  font-weight:bold; ">
+[Q2.]
+</span>
+</summary>
+
+</details>
+
+---
+
+<details>
+
+<summary>
+<span style="
+  font-size:1.7em; 
+  font-family:monospace; 
+  font-weight:bold; ">
+[Q3.]
+</span>
+</summary>
+
+</details>
+
+---
+
+<details>
+
+<summary>
+<span style="
+  font-size:1.7em; 
+  font-family:monospace; 
+  font-weight:bold; ">
+[Q4.]
+</span>
+</summary>
+
+</details>
+
+---
+
+<details>
+
+<summary>
+<span style="
+  font-size:1.7em; 
+  font-family:monospace; 
+  font-weight:bold; ">
+[Q5.]
+</span>
+</summary>
+
+</details>
+
+---
+
+<details>
+
+<summary>
+<span style="
+  font-size:1.7em; 
+  font-family:monospace; 
+  font-weight:bold; ">
+[Q6.]
+</span>
+</summary>
+
+</details>
+
+---
+
+<details>
+
+<summary>
+<span style="
+  font-size:1.7em; 
+  font-family:monospace; 
+  font-weight:bold; ">
+[Q7.]
+</span>
+</summary>
+
+</details>
+
+---
+
+<details>
+
+<summary>
+<span style="
+  font-size:1.7em; 
+  font-family:monospace; 
+  font-weight:bold; ">
+[Q8.]
+</span>
+</summary>
+
+</details>
+
+---
