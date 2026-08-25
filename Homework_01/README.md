@@ -1,3 +1,12 @@
+- [Part A: Very Short Answer Questions](#part-a-very-short-answer-questions)
+- [Part B: Identify The Data Type](#part-b-identify-the-data-type)
+- [Part C: Valid Or Invalid Variable Names](#part-c-valid-or-invalid-variable-names)
+- [Part D: Find The Error - Find and correct the mistake.](#part-d-find-the-error---find-and-correct-the-mistake)
+- [Part E: Output Questions](#part-e-output-questions)
+- [Part F: Coding Practice](#part-f-coding-practice)
+- [Part G: Mini Project](#part-g-mini-project)
+- [Part H: Challenge Questions](#part-h-challenge-questions)
+
 # Part A: Very Short Answer Questions
 
 1. **What is data?**
