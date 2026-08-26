@@ -1,9 +1,9 @@
-[Part A: Short Answer Questions](#part-a-short-answer-questions)
-[Part B: Find The Output](#part-b-find-the-output)
-[Part C: Find And Correct The Error](#part-c-find-and-correct-the-error)
-[Part D: Coding Practice](#part-d-coding-practice)
-[Part E: Slightly Challenging Questions](#part-e-slightly-challenging-questions)
-[Part F: Oral Revision Questions](#part-f-oral-revision-questions)
+- [Part A: Short Answer Questions](#part-a-short-answer-questions)
+- [Part B: Find The Output](#part-b-find-the-output)
+- [Part C: Find And Correct The Error](#part-c-find-and-correct-the-error)
+- [Part D: Coding Practice](#part-d-coding-practice)
+- [Part E: Slightly Challenging Questions](#part-e-slightly-challenging-questions)
+- [Part F: Oral Revision Questions](#part-f-oral-revision-questions)
 
 # Part A: Short Answer Questions
 
