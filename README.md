@@ -134,9 +134,101 @@ By default, it shows the class name followed by the object’s hash code, but yo
   font-size:1.7em; 
   font-family:monospace; 
   font-weight:bold; ">
-[Q2.]
+[Q2.] freqMap.put(w, freqMap.getOrDefault(w, 0)+1);
 </span>
 </summary>
+
+```java
+import java.util.*;
+
+public class P7_WordFrequencyCounter {
+    public static void main(String[] args) {
+
+        // Given input string
+        String input = "java spring java sql spring java";
+
+        // splitting into words
+        String[] words = input.split(" ");
+
+        // HashMap to store frequency
+        Map<String, Integer> freqMap = new HashMap<>();
+
+        // counting frequency
+        for (String w : words) {
+            freqMap.put(w, freqMap.getOrDefault(w, 0)+1);
+        }
+
+        // printing count
+        System.out.println("Word Frequencies");
+        for (Map.Entry<String, Integer> entry : freqMap.entrySet()) {
+            System.out.println(entry.getKey() + " = " + entry.getValue());
+        }
+    }
+}
+```
+
+### 🔹 Counting frequency
+
+```java
+for (String w : words) {
+    freqMap.put(w, freqMap.getOrDefault(w, 0)+1);
+}
+```
+
+- **`for (String w : words)`**  
+  → This loop goes through each word in the `words` array one by one.  
+  Example: first `"java"`, then `"spring"`, then `"java"` again, etc.
+
+- **`freqMap.getOrDefault(w, 0)`**  
+  → Look inside the map (`freqMap`) to see if the word `w` is already stored.
+  - If yes → return its current count.
+  - If no → return `0` (default value).
+
+- **`+1`**  
+  → Add 1 because we just saw this word again.
+
+- **`freqMap.put(w, ...)`**  
+  → Save the updated count back into the map.  
+  Example:
+  - First time `"java"` → count becomes 1.
+  - Next time `"java"` → count becomes 2.
+  - Next time `"java"` → count becomes 3.
+
+👉 In short: this loop **counts how many times each word appears**.
+
+### 🔹 Printing the result
+
+```java
+System.out.println("Word Frequencies");
+for (Map.Entry<String, Integer> entry : freqMap.entrySet()) {
+    System.out.println(entry.getKey() + " = " + entry.getValue());
+}
+```
+
+- **`System.out.println("Word Frequencies");`**  
+  → Just prints a heading so the output looks neat.
+
+- **`for (Map.Entry<String, Integer> entry : freqMap.entrySet())`**  
+  → Go through each word–count pair stored in the map.
+  - `entry.getKey()` → the word (like `"java"`).
+  - `entry.getValue()` → the count (like `3`).
+
+- **`System.out.println(entry.getKey() + " = " + entry.getValue());`**  
+  → Print the word and its count in the format:
+  ```
+  java = 3
+  spring = 2
+  sql = 1
+  ```
+
+👉 In short: this loop **prints each word with its frequency**.
+
+✅ **Summary in plain words:**
+
+- The first loop **counts** how many times each word shows up.
+- The second loop **prints** those counts nicely.
+
+Would you like me to also show a **dry run table** (step-by-step map changes after each word) so you can literally see how `"java spring java sql spring java"` builds the counts?
 
 </details>
 
